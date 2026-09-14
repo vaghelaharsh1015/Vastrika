@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vastrika - સંપૂર્ણ પ્રોજેક્ટ ગાઈડ અને કોડ સમજુતી</title>
+  <title>Vastrika - સંપૂર્ણ A to Z પ્રોજેક્ટ & કોડ માસ્ટર ગાઈડ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-body: #FDFBF7;
       --bg-card: #FFFFFF;
-      --bg-sidebar: #1E1210;
+      --bg-sidebar: #190E0C;
       --primary: #6B1724;
+      --primary-hover: #500F19;
       --primary-light: #FCEEF0;
       --gold: #C5A059;
-      --gold-light: #FDF6E9;
+      --gold-light: #FDF7EC;
+      --gold-dark: #9D7B37;
       --text-main: #201715;
       --text-muted: #6B625C;
-      --code-bg: #1A1A1A;
+      --code-bg: #141414;
       --border: #E8DFD3;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -39,165 +46,191 @@
 
     /* Sidebar Navigation */
     .sidebar {
-      width: 320px;
+      width: 330px;
       height: 100vh;
       background: var(--bg-sidebar);
       color: #FFFFFF;
       position: sticky;
       top: 0;
       overflow-y: auto;
-      padding: 30px 20px;
+      padding: 26px 18px;
       flex-shrink: 0;
       border-right: 2px solid var(--gold);
     }
 
     .brand-header {
       text-align: center;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+      margin-bottom: 20px;
     }
 
     .brand-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.15em;
+      font-size: 1.65rem;
+      letter-spacing: 0.12em;
       color: #FFFFFF;
     }
 
     .brand-subtitle {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--gold);
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    .sidebar-section-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin: 18px 0 8px 10px;
+      font-weight: 700;
     }
 
     .nav-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 4px;
     }
 
     .nav-list a {
-      color: #DDD5CB;
+      color: #D3C9BE;
       text-decoration: none;
-      font-size: 0.9rem;
-      padding: 10px 14px;
+      font-size: 0.85rem;
+      padding: 8px 12px;
       border-radius: 6px;
       display: block;
       transition: all 0.2s;
     }
 
     .nav-list a:hover {
-      background: rgba(197, 160, 89, 0.15);
+      background: rgba(197, 160, 89, 0.18);
       color: var(--gold);
       transform: translateX(4px);
     }
 
-    /* Main Content */
+    /* Main Content Area */
     .main-content {
       flex-grow: 1;
-      max-width: 1050px;
-      padding: 50px 60px;
+      max-width: 1100px;
+      padding: 40px 50px;
       margin: 0 auto;
     }
 
-    /* Header Banner */
+    /* Doc Hero */
     .doc-hero {
       background: linear-gradient(135deg, #6B1724 0%, #201715 100%);
       color: #FFFFFF;
       padding: 40px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(107, 23, 36, 0.25);
-      margin-bottom: 50px;
+      box-shadow: 0 12px 36px rgba(107, 23, 36, 0.25);
+      margin-bottom: 44px;
       position: relative;
     }
 
     .doc-hero h1 {
       font-family: 'Cinzel', serif;
       font-size: 2.2rem;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: #FFFFFF;
     }
 
     .doc-hero p {
       color: #EBDCD9;
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.6;
+      max-width: 800px;
     }
 
     .badge {
       display: inline-block;
       background: var(--gold);
       color: #1A120B;
-      font-weight: 700;
-      font-size: 0.75rem;
+      font-weight: 800;
+      font-size: 0.72rem;
       padding: 4px 12px;
       border-radius: 20px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       margin-bottom: 12px;
     }
 
     .print-btn {
       position: absolute;
-      top: 40px;
-      right: 40px;
+      top: 36px;
+      right: 36px;
       background: var(--gold);
       color: #1E1210;
       font-weight: 700;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 8px;
       cursor: pointer;
       font-size: 0.88rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.2s;
     }
 
     .print-btn:hover {
-      background: #E5BE73;
+      background: #D9B365;
+      transform: translateY(-2px);
     }
 
-    /* Section Cards */
+    /* Category Cards */
     .section-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 36px;
-      margin-bottom: 40px;
-      box-shadow: var(--shadow);
+      padding: 32px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-sm);
     }
 
     .section-card h2 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       color: var(--primary);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 10px;
       border-bottom: 2px solid var(--border);
-      padding-bottom: 12px;
+      padding-bottom: 10px;
     }
 
     .section-card h3 {
       font-size: 1.15rem;
       color: var(--text-main);
-      margin: 24px 0 10px;
+      margin: 22px 0 8px;
     }
 
-    /* Code Block */
+    .file-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Code Blocks */
     .code-wrapper {
       position: relative;
-      margin: 16px 0 24px;
+      margin: 14px 0 20px;
     }
 
     .code-tag {
       position: absolute;
-      top: 10px;
+      top: 8px;
       right: 14px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #888;
       text-transform: uppercase;
       font-family: 'Fira Code', monospace;
@@ -206,34 +239,35 @@
     pre {
       background: var(--code-bg);
       color: #F8F8F2;
-      padding: 22px;
+      padding: 18px 20px;
       border-radius: 10px;
       overflow-x: auto;
       font-family: 'Fira Code', monospace;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       line-height: 1.6;
       border-left: 4px solid var(--gold);
     }
 
-    /* Explanation Box */
+    /* Explanation Boxes */
     .explain-box {
       background: var(--gold-light);
       border-left: 4px solid var(--gold);
-      padding: 18px 22px;
+      padding: 16px 20px;
       border-radius: 0 8px 8px 0;
-      margin: 16px 0;
+      margin: 14px 0 22px;
     }
 
     .explain-box h4 {
-      color: #8C6A24;
-      font-size: 0.95rem;
+      color: #84631D;
+      font-size: 0.92rem;
       margin-bottom: 8px;
+      font-weight: 700;
     }
 
     .explain-box ul {
-      padding-left: 20px;
+      padding-left: 18px;
       color: var(--text-main);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .explain-box li {
@@ -244,14 +278,14 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin: 18px 0;
     }
 
     th, td {
-      padding: 12px 16px;
+      padding: 10px 14px;
       border: 1px solid var(--border);
       text-align: left;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
     }
 
     th {
@@ -264,7 +298,7 @@
       background: #FAF7F2;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       body {
         flex-direction: column;
       }
@@ -274,11 +308,11 @@
         position: relative;
       }
       .main-content {
-        padding: 24px;
+        padding: 20px;
       }
       .print-btn {
         position: static;
-        margin-top: 16px;
+        margin-top: 14px;
       }
     }
 
@@ -299,21 +333,52 @@
   <aside class="sidebar">
     <div class="brand-header">
       <h2 class="brand-title">VASTRIKA</h2>
-      <p class="brand-subtitle">Project Documentation</p>
+      <p class="brand-subtitle">A-Z Architecture Guide</p>
     </div>
+
+    <div class="sidebar-section-title">📌 પ્રસ્તાવના & Setup</div>
     <ul class="nav-list">
-      <li><a href="#overview">📌 ૧. પ્રોજેક્ટ પરિચય (Overview)</a></li>
-      <li><a href="#structure">📁 ૨. ફોલ્ડર માળખું (Structure)</a></li>
-      <li><a href="#main-jsx">💻 ૩. src/main.jsx</a></li>
-      <li><a href="#app-jsx">💻 ૪. src/App.jsx (Routing)</a></li>
-      <li><a href="#cart-context">💻 ૫. CartContext (સ્ટેટ & લૉજિક)</a></li>
-      <li><a href="#products-data">💻 ૬. products.js (ડેટાબેઝ)</a></li>
-      <li><a href="#navbar">💻 ૭. Navbar.jsx</a></li>
-      <li><a href="#product-card">💻 ૮. ProductCard.jsx</a></li>
-      <li><a href="#cart-drawer">💻 ૯. CartDrawer.jsx</a></li>
-      <li><a href="#checkout-modal">💻 ૧૦. CheckoutModal.jsx</a></li>
-      <li><a href="#shop-page">💻 ૧૧. Shop.jsx (ફિલ્ટર લૉજિક)</a></li>
-      <li><a href="#cart-page">💻 ૧૨. Cart.jsx (કૂપન લૉજિક)</a></li>
+      <li><a href="#overview">પરિચય & Features</a></li>
+      <li><a href="#root-main">src/main.jsx (Entry)</a></li>
+      <li><a href="#root-app">src/App.jsx (Routing)</a></li>
+      <li><a href="#root-css">src/index.css (Design)</a></li>
+    </ul>
+
+    <div class="sidebar-section-title">🧠 Context & Data</div>
+    <ul class="nav-list">
+      <li><a href="#context-cart">src/context/CartContext.jsx</a></li>
+      <li><a href="#data-products">src/data/products.js</a></li>
+    </ul>
+
+    <div class="sidebar-section-title">🧩 All Components (15)</div>
+    <ul class="nav-list">
+      <li><a href="#comp-navbar">Navbar.jsx</a></li>
+      <li><a href="#comp-hero">Hero.jsx</a></li>
+      <li><a href="#comp-category">CategorySection.jsx</a></li>
+      <li><a href="#comp-product-card">ProductCard.jsx</a></li>
+      <li><a href="#comp-product-grid">ProductGrid.jsx</a></li>
+      <li><a href="#comp-product-details">ProductDetails.jsx</a></li>
+      <li><a href="#comp-cart-drawer">CartDrawer.jsx</a></li>
+      <li><a href="#comp-cart-item">CartItem.jsx</a></li>
+      <li><a href="#comp-search-bar">SearchBar.jsx</a></li>
+      <li><a href="#comp-filter-bar">FilterBar.jsx</a></li>
+      <li><a href="#comp-offer-banner">OfferBanner.jsx</a></li>
+      <li><a href="#comp-newsletter">Newsletter.jsx</a></li>
+      <li><a href="#comp-footer">Footer.jsx</a></li>
+      <li><a href="#comp-quick-view">QuickViewModal.jsx</a></li>
+      <li><a href="#comp-checkout">CheckoutModal.jsx</a></li>
+      <li><a href="#comp-toast">Toast.jsx</a></li>
+    </ul>
+
+    <div class="sidebar-section-title">📄 All Pages (7)</div>
+    <ul class="nav-list">
+      <li><a href="#page-home">Home.jsx (મુખ્ય પેજ)</a></li>
+      <li><a href="#page-shop">Shop.jsx (કેટલોગ & ફિલ્ટર્સ)</a></li>
+      <li><a href="#page-product">ProductPage.jsx (પ્રોડક્ટ વિગત)</a></li>
+      <li><a href="#page-cart">Cart.jsx (શોપિંગ બેગ & કૂપન)</a></li>
+      <li><a href="#page-wishlist">Wishlist.jsx (મનપસંદ આઈટમ્સ)</a></li>
+      <li><a href="#page-about">About.jsx (બ્રાન્ડ વારસો)</a></li>
+      <li><a href="#page-contact">Contact.jsx (સંપર્ક & FAQs)</a></li>
     </ul>
   </aside>
 
@@ -322,51 +387,20 @@
     
     <!-- Hero Banner -->
     <div class="doc-hero" id="overview">
-      <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
-      <span class="badge">Complete Architecture Guide</span>
-      <h1>Vastrika - કોડ અને પ્રોજેક્ટ ગાઈડ</h1>
-      <p>આ સંપૂર્ણ વિગતવાર ગાઈડમાં Vastrika ઈ-કોમર્સ પ્રોજેક્ટની દરેક ફાઈલનો અસલી કોડ અને તે કોડ શું કામ કરે છે તેની સરળ ગુજરાતી સમજુતી આપેલી છે.</p>
+      <button class="print-btn" onclick="window.print()">🖨️ Save as PDF</button>
+      <span class="badge">Master Documentation</span>
+      <h1>Vastrika - A to Z સંપૂર્ણ કોડ ગાઈડ</h1>
+      <p>આ દસ્તાવેજમાં Vastrika ઇ-કોમર્સ વેબ એપ્લિકેશનની <strong>દરેક ફાઈલ (Context, Data, Components અને Pages)</strong> નો અસલી કોડ અને તેનું લાઈન-બાય-લાઈન ગુજરાતીમાં વિશ્લેષણ કરેલું છે.</p>
     </div>
 
-    <!-- 1. Folder Structure -->
-    <section class="section-card" id="structure">
-      <h2>📁 ૧. પ્રોજેક્ટ ફોલ્ડર માળખું (Folder Structure)</h2>
-      <p>આ પ્રોજેક્ટ Clean Architecture મુજબ ગોઠવાયેલો છે:</p>
-      <table>
-        <thead>
-          <tr>
-            <th>ફોલ્ડર / ફાઈલ</th>
-            <th>શું કામ કરે છે?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong><code>src/data/</code></strong></td>
-            <td>બધા કપડાં, ફોટા, પ્રાઈસ, કેટેગરીઝ અને કૂપનનો ડેટાબેઝ.</td>
-          </tr>
-          <tr>
-            <td><strong><code>src/context/</code></strong></td>
-            <td>કાર્ટ, વિશલિસ્ટ અને ગ્લોબલ સ્ટેટ મેનેજમેન્ટ (LocalStorage સાથે).</td>
-          </tr>
-          <tr>
-            <td><strong><code>src/components/</code></strong></td>
-            <td>નાના રીયુઝેબલ કમ્પોનન્ટ્સ (Navbar, ProductCard, Drawer, Modal, Toast).</td>
-          </tr>
-          <tr>
-            <td><strong><code>src/pages/</code></strong></td>
-            <td>મુખ્ય પેજીસ (Home, Shop, ProductPage, Cart, Wishlist, About, Contact).</td>
-          </tr>
-          <tr>
-            <td><strong><code>src/index.css</code></strong></td>
-            <td>100% Pure Vanilla CSS Design System (વેરિયેબલ્સ અને મીડિયા ક્વેરીઝ સાથે).</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <!-- ==========================================================================
+         ROOT FILES
+         ========================================================================== -->
 
-    <!-- 2. main.jsx -->
-    <section class="section-card" id="main-jsx">
-      <h2>💻 ૨. <code>src/main.jsx</code> - પ્રોજેક્ટનું Entry Point</h2>
+    <!-- main.jsx -->
+    <section class="section-card" id="root-main">
+      <h2><span class="file-tag">src/main.jsx</span> - પ્રોજેક્ટનું Entry Point</h2>
+      <p>આ ફાઈલ બ્રાઉઝરના HTML ડોક્યુમેન્ટ સાથે React એપ્લિકેશનને જોડે છે.</p>
       <div class="code-wrapper">
         <span class="code-tag">JSX</span>
 <pre><code>import React from 'react';
@@ -386,29 +420,37 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   &lt;/React.StrictMode&gt;
 );</code></pre>
       </div>
-
       <div class="explain-box">
         <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
         <ul>
-          <li><strong><code>ReactDOM.createRoot</code></strong>: HTML ના <code>&lt;div id="root"&gt;</code> માં React ને Load કરે છે.</li>
-          <li><strong><code>&lt;BrowserRouter&gt;</code></strong>: React Router ને સક્રિય કરે છે જેથી પેજ રિલોડ થયા વગર URL બદલીને પેજ નેવિગેટ થઈ શકે.</li>
-          <li><strong><code>&lt;CartProvider&gt;</code></strong>: આખા પ્રોજેક્ટને Wrap કરે છે જેથી Cart અને Wishlist નો ડેટા કોઈપણ પેજ પરથી એક્સેસ કરી શકાય.</li>
+          <li><strong><code>ReactDOM.createRoot</code></strong>: <code>index.html</code> માં આપેલા <code>&lt;div id="root"&gt;</code> માં React Component Tree બનાવે છે.</li>
+          <li><strong><code>&lt;BrowserRouter&gt;</code></strong>: પેજ રીફ્રેશ થયા વિના URL પાથ બદલવા માટેનું Client-side Routing સક્ષમ કરે છે.</li>
+          <li><strong><code>&lt;CartProvider&gt;</code></strong>: CartContext ને App ની ફરતે Wrap કરે છે જેથી કાર્ટ, વિશલિસ્ટ અને સર્ચ સ્ટેટ આખી એપ્લિકેશનમાં શૅર થાય.</li>
         </ul>
       </div>
     </section>
 
-    <!-- 3. App.jsx -->
-    <section class="section-card" id="app-jsx">
-      <h2>💻 ૩. <code>src/App.jsx</code> - Routing અને મોડલ્સ</h2>
+    <!-- App.jsx -->
+    <section class="section-card" id="root-app">
+      <h2><span class="file-tag">src/App.jsx</span> - પેજ Routing અને ગ્લોબલ Modals</h2>
+      <p>આ ફાઈલમાં તમામ Routes (Pages) અને પોપઅપ મોડલ્સ ગોઠવાયેલા છે.</p>
       <div class="code-wrapper">
         <span class="code-tag">JSX</span>
-<pre><code>function App() {
+<pre><code>const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0); // પેજ બદલાય ત્યારે ઉપર સ્ક્રોલ થાય
+  }, [pathname]);
+  return null;
+};
+
+function App() {
   return (
     &lt;div className="app-container"&gt;
       &lt;ScrollToTop /&gt;
       &lt;Navbar /&gt;
 
-      &lt;main&gt;
+      &lt;main style={{ flexGrow: 1 }}&gt;
         &lt;Routes&gt;
           &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
           &lt;Route path="/shop" element={&lt;Shop /&gt;} /&gt;
@@ -422,7 +464,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       &lt;Footer /&gt;
 
-      {/* Global Modals and Drawers */}
+      {/* Global Modals &amp; Drawers */}
       &lt;CartDrawer /&gt;
       &lt;SearchBar /&gt;
       &lt;QuickViewModal /&gt;
@@ -432,70 +474,264 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   );
 }</code></pre>
       </div>
-
       <div class="explain-box">
         <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
         <ul>
-          <li><strong><code>ScrollToTop</code></strong>: નવું પેજ ખૂલતાં જ પેજને ઓટોમેટિકલી ઉપર (Top) સ્ક્રોલ કરે છે.</li>
-          <li><strong><code>&lt;Routes&gt;</code></strong>: પાથ મુજબ સાચું પેજ રેન્ડર કરે છે.</li>
-          <li><strong><code>&lt;CartDrawer /&gt;, &lt;CheckoutModal /&gt;</code></strong>: આ બધા ગ્લોબલ છે, એટલે કોઈપણ પેજ પરથી ઓપન થઈ શકે છે.</li>
+          <li><strong><code>ScrollToTop</code></strong>: <code>useLocation()</code> હૂક વડે જ્યારે પણ યુઝર પેજ બદલે ત્યારે પેજ ટોપ પર સ્ક્રોલ કરી આપે છે.</li>
+          <li><strong><code>&lt;Routes&gt;</code></strong>: URL પાથ મુજબ યોગ્ય પેજ Component રેન્ડર કરે છે.</li>
+          <li><strong>ગ્લોબલ કમ્પોનન્ટ્સ</strong>: <code>CartDrawer</code>, <code>SearchBar</code>, <code>QuickViewModal</code>, <code>CheckoutModal</code> અને <code>Toast</code> ને અહીં મૂકવાથી તે એપમાં ગમે ત્યાંથી ટ્રિગર થઈ શકે છે.</li>
         </ul>
       </div>
     </section>
 
-    <!-- 4. CartContext.jsx -->
-    <section class="section-card" id="cart-context">
-      <h2>💻 ૪. <code>src/context/CartContext.jsx</code> - સ્ટેટ મેનેજમેન્ટ & લૉજિક</h2>
+    <!-- ==========================================================================
+         CONTEXT & DATA
+         ========================================================================== -->
+
+    <!-- CartContext.jsx -->
+    <section class="section-card" id="context-cart">
+      <h2><span class="file-tag">src/context/CartContext.jsx</span> - સ્ટેટ મેનેજમેન્ટ & બિઝનેસ લૉજિક</h2>
+      <p>પ્રોજેક્ટનું આખું બિઝનેસ લૉજિક (Cart, Wishlist, Coupons, Shipping) આ ફાઈલમાં છે.</p>
       <div class="code-wrapper">
         <span class="code-tag">JSX</span>
-<pre><code>// ૧. LocalStorage માંથી ડેટા લોડ કરવો
+<pre><code>// ૧. LocalStorage માંથી Initial Cart Load
 const [cart, setCart] = useState(() => {
   const saved = localStorage.getItem('vastrika_cart');
   return saved ? JSON.parse(saved) : [];
 });
 
-// ૨. કાર્ટમાં ફેરફાર થાય ત્યારે LocalStorage માં સેવ કરવું
+// ૨. Cart Update થાય ત્યારે LocalStorage માં Save
 useEffect(() => {
   localStorage.setItem('vastrika_cart', JSON.stringify(cart));
 }, [cart]);
 
-// ૩. Add to Cart લોજિક (ડુપ્લિકેટ ન બને તે માટે)
-const addToCart = (product, size, qty = 1) => {
-  const selectedSize = size || product.sizes[0];
+// ૩. Add to Cart (સાથે સાઇઝ અને ક્વોન્ટિટી હેન્ડલિંગ)
+const addToCart = (product, size = null, quantity = 1) => {
+  const selectedSize = size || product.sizes[0] || 'Free Size';
+  const qty = Math.max(1, parseInt(quantity, 10) || 1);
+
   setCart((prev) => {
-    const existing = prev.findIndex(
+    const existingIndex = prev.findIndex(
       (item) => item.product.id === product.id &amp;&amp; item.selectedSize === selectedSize
     );
-    if (existing &gt; -1) {
+    if (existingIndex &gt; -1) {
+      // Duplicate અટકાવી ફક્ત સંખ્યા વધારે છે
       const updated = [...prev];
-      updated[existing].quantity += qty;
+      updated[existingIndex].quantity += qty;
       return updated;
     }
     return [...prev, { product, selectedSize, quantity: qty }];
   });
-  setIsCartOpen(true); // કાર્ટ ડ્રોઅર ખોલો
+
+  addToast(`Added "${product.name.slice(0, 24)}..." to your bag!`);
+  setIsCartOpen(true); // સ્લાઈડિંગ કાર્ટ ખોલે છે
 };
 
-// ૪. ડિસ્કાઉન્ટ અને ટોટલ ગણતરી
+// ૪. Total, Discount &amp; Free Shipping ગણતરી
 const cartSubtotal = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 const promoDiscount = appliedPromo ? Math.round((cartSubtotal * appliedPromo.discountPercent) / 100) : 0;
 const shippingFee = cartSubtotal &gt;= 1999 || cartSubtotal === 0 ? 0 : 199;
 const cartTotal = Math.max(0, cartSubtotal - promoDiscount + shippingFee);</code></pre>
       </div>
-
       <div class="explain-box">
         <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
         <ul>
-          <li><strong><code>localStorage</code></strong>: બ્રાઉઝર રિફ્રેશ કરવા છતાં કાર્ટ ખાલી થતું નથી.</li>
-          <li><strong><code>existing &gt; -1</code></strong>: જો એક જ આઈટમ ફરીથી ઉમેરાય તો નવી લાઈન બનાવવાને બદલે માત્ર ક્વોન્ટિટી વધારે છે.</li>
-          <li><strong><code>shippingFee</code></strong>: જો ખરીદી ₹1,999 કે તેથી વધુ હોય તો શિપિંગ ₹0 (ફ્રી) ગણાય છે.</li>
+          <li><strong><code>localStorage</code></strong>: પેજ રિફ્રેશ થાય તો પણ ગ્રાહકની પસંદ કરેલી આઈટમ્સ સુરક્ષિત રહે છે.</li>
+          <li><strong><code>existingIndex &gt; -1</code></strong>: એક જ પ્રોડક્ટ અને સાઈઝ ફરી એડ કરતાં કાર્ટમાં ડુપ્લિકેટ લાઈન નથી બનતી પણ ક્વોન્ટિટી વધી જાય છે.</li>
+          <li><strong><code>shippingFee</code></strong>: ₹1,999 થી વધુના ઓર્ડર પર આપમેળે શિપિંગ ચાર્જ <strong>₹0 (FREE)</strong> થઈ જાય છે.</li>
         </ul>
       </div>
     </section>
 
-    <!-- 5. ProductCard.jsx -->
-    <section class="section-card" id="product-card">
-      <h2>💻 ૫. <code>src/components/ProductCard.jsx</code> - પ્રોડક્ટ કાર્ડ</h2>
+    <!-- products.js -->
+    <section class="section-card" id="data-products">
+      <h2><span class="file-tag">src/data/products.js</span> - પ્રોડક્ટ્સ અને કેટેગરીઝ ડેટાબેઝ</h2>
+      <p>આ ફાઈલમાં તમામ કપડાં, કેટેગરીઝ, રિવ્યૂઝ અને કૂપન કોડ્સનો ડેટા સંગ્રહિત છે.</p>
+      <div class="code-wrapper">
+        <span class="code-tag">JavaScript</span>
+<pre><code>export const PRODUCTS = [
+  {
+    id: 'vast-001',
+    name: 'Royal Crimson Velvet Embroidered Lehenga Set',
+    category: 'Women',
+    subCategory: 'Traditional Wear',
+    price: 18999,
+    originalPrice: 24999,
+    discount: 24,
+    rating: 4.9,
+    reviewCount: 142,
+    isNew: true,
+    isFeatured: true,
+    isBestSeller: true,
+    tag: 'Bestseller',
+    images: ['https://images.unsplash.com/...', '...'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    color: 'Crimson Maroon &amp; Gold',
+    fabric: 'Micro Velvet with Pure Organza Dupatta',
+    care: 'Strictly Dry Clean Only',
+    deliveryDays: '3-5 business days'
+  },
+  // ... ૧૨ જેટલી અન્ય પ્રોડક્ટ્સ
+];
+
+export const PROMOS = [
+  { code: 'VASTRIKA20', discountPercent: 20, minOrder: 3000 },
+  { code: 'ROYAL10', discountPercent: 10, minOrder: 1500 }
+];</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li><strong><code>PRODUCTS</code></strong>: દરેક પ્રોડક્ટનું આઈડી, કેટેગરી, પ્રાઈસ, ડિસ્કાઉન્ટ, સાઈઝ Array અને અનસ્પ્લેશ ફોટાઓ ધરાવે છે.</li>
+          <li><strong><code>PROMOS</code></strong>: <code>VASTRIKA20</code> કોડ નાખતાં ૨૦% ડિસ્કાઉન્ટની ગણતરી આ ડેટા પરથી થાય છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         COMPONENTS (ALL 15)
+         ========================================================================== -->
+
+    <!-- Navbar.jsx -->
+    <section class="section-card" id="comp-navbar">
+      <h2><span class="file-tag">src/components/Navbar.jsx</span> - હેડર અને નેવિગેશન</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const Navbar = () => {
+  const { cartCount, wishlist, openCart, openSearch } = useCart();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    &lt;header className="navbar-sticky"&gt;
+      {/* Top Promotional Bar */}
+      &lt;div className="top-ticker"&gt;
+        &lt;span&gt;✨ FESTIVE EDIT: Free Shipping on ₹1,999+ | Code: VASTRIKA20&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;div className="container navbar-container"&gt;
+        {/* Mobile Hamburger Toggle */}
+        &lt;button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}&gt;
+          {mobileMenuOpen ? &lt;X size={24} /&gt; : &lt;Menu size={24} /&gt;}
+        &lt;/button&gt;
+
+        {/* Brand Logo */}
+        &lt;Link to="/" className="nav-brand"&gt;
+          &lt;div className="brand-emblem"&gt;&lt;Sparkles size={20} /&gt;&lt;/div&gt;
+          &lt;span className="brand-name"&gt;VASTRIKA&lt;/span&gt;
+        &lt;/Link&gt;
+
+        {/* Links */}
+        &lt;ul className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}&gt;
+          &lt;li&gt;&lt;NavLink to="/"&gt;Home&lt;/NavLink&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;NavLink to="/shop"&gt;Shop&lt;/NavLink&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;NavLink to="/shop?category=Men"&gt;Men&lt;/NavLink&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;NavLink to="/shop?category=Women"&gt;Women&lt;/NavLink&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+
+        {/* Action Icons */}
+        &lt;div className="nav-actions"&gt;
+          &lt;button onClick={openSearch}&gt;&lt;Search size={20} /&gt;&lt;/button&gt;
+          &lt;Link to="/wishlist"&gt;
+            &lt;Heart size={20} /&gt;
+            {wishlist.length &gt; 0 &amp;&amp; &lt;span className="badge-count"&gt;{wishlist.length}&lt;/span&gt;}
+          &lt;/Link&gt;
+          &lt;button onClick={openCart}&gt;
+            &lt;ShoppingBag size={20} /&gt;
+            {cartCount &gt; 0 &amp;&amp; &lt;span className="badge-count"&gt;{cartCount}&lt;/span&gt;}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li><strong><code>badge-count</code></strong>: કાર્ટ કે વિશલિસ્ટમાં આઈટમ ઉમેરાતાં લાલ રંગનો નંબર લાઈવ અપડેટ થાય છે.</li>
+          <li><strong><code>mobileMenuOpen</code></strong>: મોબાઈલ સ્ક્રીન પર સાઈડમાંથી સ્લાઈડ થતું મેનુ કંટ્રોલ કરે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Hero.jsx -->
+    <section class="section-card" id="comp-hero">
+      <h2><span class="file-tag">src/components/Hero.jsx</span> - હોમપેજ બેનર & Stats</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const Hero = () => {
+  return (
+    &lt;section className="hero-section"&gt;
+      &lt;div className="container hero-grid"&gt;
+        &lt;div className="hero-content"&gt;
+          &lt;div className="hero-badge"&gt;✨ AUTUMN / WINTER 2026 COUTURE&lt;/div&gt;
+          &lt;h1 className="hero-title"&gt;Style Rooted in &lt;span&gt;Timeless Tradition&lt;/span&gt;&lt;/h1&gt;
+          &lt;p&gt;Discover bespoke hand-embroidered silks and festive silhouettes.&lt;/p&gt;
+          &lt;div className="hero-cta-group"&gt;
+            &lt;Link to="/shop" className="btn btn-primary btn-lg"&gt;Shop Now&lt;/Link&gt;
+            &lt;Link to="/shop?filter=featured" className="btn btn-outline btn-lg"&gt;Explore Collection&lt;/Link&gt;
+          &lt;/div&gt;
+          {/* Stats Bar */}
+          &lt;div className="hero-stats"&gt;
+            &lt;div&gt;&lt;h4&gt;100%&lt;/h4&gt;&lt;p&gt;Authentic Handloom&lt;/p&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;h4&gt;50k+&lt;/h4&gt;&lt;p&gt;Happy Patrons&lt;/p&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;h4&gt;250+&lt;/h4&gt;&lt;p&gt;Master Artisans&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className="hero-image-card"&gt;
+          &lt;img src="https://images.unsplash.com/..." alt="Hero" /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>હોમપેજ પર લક્ઝરી ફેશન ફોટો, સ્લોગન, સીધા Shop પેજ પર જવાના બટનો અને બ્રાન્ડની વિશ્વસનીયતા માટે Stats દર્શાવે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CategorySection.jsx -->
+    <section class="section-card" id="comp-category">
+      <h2><span class="file-tag">src/components/CategorySection.jsx</span> - કેટેગરી કાર્ડ્સ</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const CategorySection = () => {
+  return (
+    &lt;section className="section-padding"&gt;
+      &lt;div className="container"&gt;
+        &lt;h2 className="section-title"&gt;Explore by Category&lt;/h2&gt;
+        &lt;div className="category-grid"&gt;
+          {CATEGORIES.map((cat) => (
+            &lt;Link key={cat.id} to={`/shop?category=${encodeURIComponent(cat.name)}`} className="category-card"&gt;
+              &lt;img src={cat.image} alt={cat.name} className="category-img" /&gt;
+              &lt;div className="category-overlay"&gt;
+                &lt;span&gt;{cat.subtitle}&lt;/span&gt;
+                &lt;h3&gt;{cat.name}&lt;/h3&gt;
+                &lt;span&gt;{cat.itemCount}&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/Link&gt;
+          ))}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>કેટેગરી કાર્ડ પર ક્લિક કરતાં તે આપમેળે URL માં <code>?category=Men</code> અથવા <code>?category=Women</code> પાસ કરીને Shop પેજ પર ફિલ્ટર કરે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ProductCard.jsx -->
+    <section class="section-card" id="comp-product-card">
+      <h2><span class="file-tag">src/components/ProductCard.jsx</span> - પ્રોડક્ટ કાર્ડ</h2>
       <div class="code-wrapper">
         <span class="code-tag">JSX</span>
 <pre><code>const ProductCard = ({ product }) => {
@@ -504,78 +740,353 @@ const cartTotal = Math.max(0, cartSubtotal - promoDiscount + shippingFee);</code
 
   return (
     &lt;div className="product-card"&gt;
-      {/* Wishlist Heart Toggle Button */}
-      &lt;button 
-        className={`product-wishlist-btn ${inWishlist ? 'active' : ''}`}
-        onClick={() =&gt; toggleWishlist(product)}
-      &gt;
-        &lt;Heart fill={inWishlist ? '#6B1724' : 'none'} color={inWishlist ? '#6B1724' : '#201715'} /&gt;
-      &lt;/button&gt;
+      &lt;div className="product-image-container"&gt;
+        {/* Wishlist Heart Toggle */}
+        &lt;button className={`product-wishlist-btn ${inWishlist ? 'active' : ''}`} onClick={() => toggleWishlist(product)}&gt;
+          &lt;Heart fill={inWishlist ? '#6B1724' : 'none'} color={inWishlist ? '#6B1724' : '#201715'} /&gt;
+        &lt;/button&gt;
 
-      &lt;Link to={`/product/${product.id}`}&gt;
-        &lt;img src={product.images[0]} alt={product.name} /&gt;
-      &lt;/Link&gt;
+        &lt;Link to={`/product/${product.id}`}&gt;
+          &lt;img src={product.images[0]} alt={product.name} /&gt;
+        &lt;/Link&gt;
 
-      {/* Quick View */}
-      &lt;button className="product-quick-view" onClick={() =&gt; openQuickView(product)}&gt;
-        Quick View
-      &lt;/button&gt;
+        &lt;button className="product-quick-view" onClick={() => openQuickView(product)}&gt;
+          &lt;Eye size={16} /&gt; Quick View
+        &lt;/button&gt;
+      &lt;/div&gt;
 
       &lt;div className="product-info"&gt;
         &lt;h3&gt;&lt;Link to={`/product/${product.id}`}&gt;{product.name}&lt;/Link&gt;&lt;/h3&gt;
-        &lt;span className="current-price"&gt;₹{product.price.toLocaleString('en-IN')}&lt;/span&gt;
-        &lt;button className="btn btn-primary btn-sm" onClick={() =&gt; addToCart(product)}&gt;
-          Add to Bag
+        &lt;div className="product-price-row"&gt;
+          &lt;span className="current-price"&gt;₹{product.price.toLocaleString('en-IN')}&lt;/span&gt;
+          &lt;span className="discount-badge"&gt;{product.discount}% OFF&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;button className="btn btn-primary btn-sm" onClick={() => addToCart(product)}&gt;
+          &lt;ShoppingBag size={16} /&gt; Add to Bag
         &lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   );
 };</code></pre>
       </div>
-
       <div class="explain-box">
         <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
         <ul>
-          <li><strong><code>toggleWishlist</code></strong>: હાર્ટ પર ક્લિક કરતાં આઈટમ વિશલિસ્ટમાં ઉમેરાય/દૂર થાય છે.</li>
-          <li><strong><code>openQuickView</code></strong>: પ્રોડક્ટ પેજ ખોલ્યા વગર જ સ્ક્રીન પર ક્વિક વ્યુ પૉપઅપ ખોલે છે.</li>
+          <li><strong><code>isInWishlist</code></strong>: જો આઈટમ વિશલિસ્ટમાં હોય તો હાર્ટ આઈકોન લાલ રંગનું ભરેલું દેખાય છે.</li>
+          <li><strong><code>openQuickView</code></strong>: પેજ નેવિગેટ કર્યા વગર પોપઅપમાં પ્રોડક્ટ બતાવે છે.</li>
         </ul>
       </div>
     </section>
 
-    <!-- 6. Shop.jsx -->
-    <section class="section-card" id="shop-page">
-      <h2>💻 ૬. <code>src/pages/Shop.jsx</code> - ફિલ્ટર અને સર્ચ લૉજિક</h2>
+    <!-- ProductGrid.jsx -->
+    <section class="section-card" id="comp-product-grid">
+      <h2><span class="file-tag">src/components/ProductGrid.jsx</span> - પ્રોડક્ટ ગ્રીડ</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const ProductGrid = ({ products, emptyMessage = 'No products found.' }) => {
+  if (!products || products.length === 0) {
+    return &lt;div className="empty-state"&gt;{emptyMessage}&lt;/div&gt;;
+  }
+
+  return (
+    &lt;div className="product-grid"&gt;
+      {products.map((product) => (
+        &lt;ProductCard key={product.id} product={product} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>જો કોઈ ફિલ્ટર મુજબ પ્રોડક્ટ્સ ન મળે તો એમ્પ્ટી સ્ટેટ મેસેજ દર્શાવે છે, અન્યથા <code>ProductCard</code> નું ગ્રીડ બનાવે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ProductDetails.jsx -->
+    <section class="section-card" id="comp-product-details">
+      <h2><span class="file-tag">src/components/ProductDetails.jsx</span> - સિંગલ પ્રોડક્ટ વિગત</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const ProductDetails = ({ product }) => {
+  const { addToCart, openCheckout } = useCart();
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const [quantity, setQuantity] = useState(1);
+
+  return (
+    &lt;div className="product-detail-grid"&gt;
+      {/* Gallery */}
+      &lt;div className="product-gallery"&gt;
+        &lt;img src={product.images[selectedImage]} alt={product.name} /&gt;
+        &lt;div className="thumbnails-row"&gt;
+          {product.images.map((img, idx) => (
+            &lt;button key={idx} onClick={() => setSelectedImage(idx)}&gt;
+              &lt;img src={img} alt="thumb" /&gt;
+            &lt;/button&gt;
+          ))}
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      {/* Info &amp; Action */}
+      &lt;div className="product-detail-info"&gt;
+        &lt;h1&gt;{product.name}&lt;/h1&gt;
+        &lt;span className="current-price"&gt;₹{product.price.toLocaleString('en-IN')}&lt;/span&gt;
+        {/* Size Selection */}
+        &lt;div className="size-pill-grid"&gt;
+          {product.sizes.map((size) => (
+            &lt;button key={size} className={selectedSize === size ? 'selected' : ''} onClick={() => setSelectedSize(size)}&gt;
+              {size}
+            &lt;/button&gt;
+          ))}
+        &lt;/div&gt;
+        &lt;button className="btn btn-primary" onClick={() => addToCart(product, selectedSize, quantity)}&gt;Add to Bag&lt;/button&gt;
+        &lt;button className="btn btn-gold" onClick={() => { addToCart(product, selectedSize, quantity); openCheckout(); }}&gt;Buy Now&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li><strong><code>selectedImage</code></strong>: થંબનેલ પર ક્લિક કરતાં મોટો ફોટો બદલાય છે.</li>
+          <li><strong><code>Buy Now</code></strong>: આઈટમને કાર્ટમાં ઉમેરી સીધું ચેકઆઉટ મોડલ ખોલે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CartDrawer.jsx & CartItem.jsx -->
+    <section class="section-card" id="comp-cart-drawer">
+      <h2><span class="file-tag">src/components/CartDrawer.jsx</span> &amp; <span class="file-tag">CartItem.jsx</span></h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>// CartDrawer.jsx
+const CartDrawer = () => {
+  const { cart, isCartOpen, closeCart, cartCount, cartSubtotal, openCheckout } = useCart();
+  const freeShippingThreshold = 1999;
+  const progress = Math.min(100, Math.round((cartSubtotal / freeShippingThreshold) * 100));
+
+  return (
+    &lt;div className={`cart-drawer ${isCartOpen ? 'open' : ''}`}&gt;
+      &lt;div className="drawer-header"&gt;
+        &lt;h3&gt;Shopping Bag ({cartCount})&lt;/h3&gt;
+        &lt;button onClick={closeCart}&gt;&lt;X /&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      {/* Free shipping bar */}
+      &lt;div className="progress-bar" style={{ width: `${progress}%` }} /&gt;
+      {/* Cart Items */}
+      {cart.map((item, idx) => &lt;CartItem key={idx} item={item} /&gt;)}
+      &lt;button className="btn btn-primary" onClick={openCheckout}&gt;Checkout&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li><strong><code>CartItem.jsx</code></strong> માં <code>updateQuantity(+1 / -1)</code> અને <code>removeFromCart()</code> બટનો આવેલા છે.</li>
+          <li><strong><code>CartDrawer.jsx</code></strong> જમણી બાજુથી એનિમેશન સાથે સ્લાઈડ થઈને ગ્રાહકને લાઈવ કાર્ટ બતાવે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SearchBar.jsx -->
+    <section class="section-card" id="comp-search-bar">
+      <h2><span class="file-tag">src/components/SearchBar.jsx</span> - લાઈવ ઓટોકમ્પલીટ સર્ચ</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const filteredResults = searchTerm.trim() === '' ? [] : PRODUCTS.filter((p) => {
+  const query = searchTerm.toLowerCase();
+  return p.name.toLowerCase().includes(query) || p.fabric.toLowerCase().includes(query);
+}).slice(0, 5);</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>યુઝર જેવું અક્ષર ટાઈપ કરે કે તરત જ મેચિંગ પ્રોડક્ટ્સના ફોટા, કિંમત અને નામ સાથેનાં લાઈવ સૂચનો દર્શાવે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FilterBar.jsx -->
+    <section class="section-card" id="comp-filter-bar">
+      <h2><span class="file-tag">src/components/FilterBar.jsx</span> - ફિલ્ટર સાઈડબાર</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const FilterBar = ({ selectedCategory, setSelectedCategory, selectedPriceRange, setSelectedPriceRange, selectedSize, setSelectedSize, resetFilters }) => {
+  // Category, Price Range, Size Pill Options
+  return (
+    &lt;aside className="filter-sidebar"&gt;
+      {/* Radio buttons for Categories and Price, Pills for Sizes */}
+    &lt;/aside&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>Shop પેજ પર કેટેગરી, ભાવ અને સાઈઝ ફિલ્ટર કરવાના રેડિયો બટનો અને Reset બટન પૂરા પાડે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- OfferBanner.jsx & Newsletter.jsx -->
+    <section class="section-card" id="comp-offer-banner">
+      <h2><span class="file-tag">OfferBanner.jsx</span> &amp; <span class="file-tag">Newsletter.jsx</span></h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>// OfferBanner: 1-Click Code Copy
+const handleCopyCode = () => {
+  navigator.clipboard.writeText('VASTRIKA20');
+  addToast('Coupon "VASTRIKA20" copied to clipboard!');
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li><strong><code>OfferBanner</code></strong>: કૂપન કોડ પર ક્લિક કરતાં જ ક્લિપબોર્ડમાં કોપી થઈ જાય છે.</li>
+          <li><strong><code>Newsletter</code></strong>: ઇમેઇલ નાખીને સબ્સ્ક્રાઇબ કરતાં વેલકમ મેસેજ આપે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CheckoutModal.jsx & Toast.jsx -->
+    <section class="section-card" id="comp-checkout">
+      <h2><span class="file-tag">CheckoutModal.jsx</span> &amp; <span class="file-tag">Toast.jsx</span></h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const handlePlaceOrder = (e) => {
+  e.preventDefault();
+  const id = `VST-${Math.floor(100000 + Math.random() * 900000)}`;
+  setOrderId(id);
+  setOrderPlaced(true);
+  clearCart(); // કાર્ટ ખાલી થાય છે
+  addToast('Order placed successfully! 🎉');
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li><strong><code>CheckoutModal</code></strong>: ડિલિવરી સરનામું, UPI/Card/COD પેમેન્ટ સિલેક્ટ કરી ઓર્ડર મૂકવાની રસીદ બનાવે છે.</li>
+          <li><strong><code>Toast</code></strong>: કાર્ટ કે વિશલિસ્ટમાં થતી દરેક ક્રિયા પર સ્ક્રીન પર નીચે તરતો મેસેજ દર્શાવે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGES (ALL 7)
+         ========================================================================== -->
+
+    <!-- Home.jsx -->
+    <section class="section-card" id="page-home">
+      <h2><span class="file-tag">src/pages/Home.jsx</span> - મુખ્ય હોમ પેજ</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const Home = () => {
+  const [activeTab, setActiveTab] = useState('featured');
+  const tabProducts = PRODUCTS.filter((p) => {
+    if (activeTab === 'bestseller') return p.isBestSeller;
+    if (activeTab === 'new') return p.isNew;
+    return p.isFeatured;
+  }).slice(0, 8);
+
+  return (
+    &lt;div className="home-page"&gt;
+      &lt;Hero /&gt;
+      &lt;CategorySection /&gt;
+      &lt;ProductGrid products={tabProducts} /&gt;
+      &lt;OfferBanner /&gt;
+      &lt;Newsletter /&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>Hero, કેટેગરીઝ, ટેબ્સ (Bestseller/New Arrivals), પ્રમોશન બેનર અને ન્યૂઝલેટરને ક્રમબદ્ધ જોડીને સુંદર હોમ પેજ બનાવે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Shop.jsx -->
+    <section class="section-card" id="page-shop">
+      <h2><span class="file-tag">src/pages/Shop.jsx</span> - કેટલોગ, લાઈવ ફિલ્ટર &amp; સોર્ટિંગ</h2>
       <div class="code-wrapper">
         <span class="code-tag">JSX</span>
 <pre><code>const filteredProducts = useMemo(() => {
   return PRODUCTS.filter((product) => {
-    // ૧. Search Filter
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      if (!product.name.toLowerCase().includes(q)) return false;
-    }
-    // ૨. Category Filter
-    if (selectedCategory !== 'All' &amp;&amp; product.category !== selectedCategory) {
-      return false;
-    }
-    // ૩. Price Filter
-    if (product.price &lt; selectedPriceRange.min || product.price &gt; selectedPriceRange.max) {
-      return false;
-    }
+    if (searchQuery &amp;&amp; !product.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    if (selectedCategory !== 'All' &amp;&amp; product.category !== selectedCategory) return false;
+    if (product.price &lt; selectedPriceRange.min || product.price &gt; selectedPriceRange.max) return false;
+    if (selectedSize !== 'All' &amp;&amp; !product.sizes.includes(selectedSize)) return false;
     return true;
   }).sort((a, b) => {
     if (sortBy === 'price-low') return a.price - b.price;
     if (sortBy === 'price-high') return b.price - a.price;
     return 0;
   });
-}, [selectedCategory, selectedPriceRange, sortBy, searchQuery]);</code></pre>
+}, [selectedCategory, selectedPriceRange, selectedSize, sortBy, searchQuery]);</code></pre>
       </div>
-
       <div class="explain-box">
         <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
         <ul>
-          <li><strong><code>useMemo</code></strong>: જ્યારે પણ યુઝર કેટેગરી કે પ્રાઈસ પસંદ કરે ત્યારે તરત જ રિસ્પોન્સિવ ફિલ્ટરિંગ કરે છે.</li>
-          <li><strong><code>.sort()</code></strong>: ભાવ ઓછાથી વધુ કે વધુથી ઓછા મુજબ લાઈવ ક્રમ ગોઠવે છે.</li>
+          <li><strong><code>useMemo</code></strong>: ફિલ્ટર્સ બદલાતાં જ બ્રાઉઝર લેગ થયા વગર ફાસ્ટ ફિલ્ટરિંગ કરીને પ્રોડક્ટ્સ લિસ્ટ અપડેટ કરે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Cart.jsx -->
+    <section class="section-card" id="page-cart">
+      <h2><span class="file-tag">src/pages/Cart.jsx</span> - પૂર્ણ કાર્ટ પેજ &amp; કૂપન સિસ્ટમ</h2>
+      <div class="code-wrapper">
+        <span class="code-tag">JSX</span>
+<pre><code>const Cart = () => {
+  const { cart, cartSubtotal, promoDiscount, shippingFee, cartTotal, applyPromo, openCheckout } = useCart();
+  const [coupon, setCoupon] = useState('');
+
+  return (
+    &lt;div className="cart-page"&gt;
+      {/* Items list */}
+      &lt;div className="cart-items"&gt;
+        {cart.map((item, i) => &lt;CartItem key={i} item={item} /&gt;)}
+      &lt;/div&gt;
+      {/* Summary */}
+      &lt;div className="order-summary"&gt;
+        &lt;h3&gt;Order Summary&lt;/h3&gt;
+        &lt;div&gt;Subtotal: ₹{cartSubtotal}&lt;/div&gt;
+        &lt;div&gt;Discount: -₹{promoDiscount}&lt;/div&gt;
+        &lt;div&gt;Shipping: {shippingFee === 0 ? 'FREE' : `₹${shippingFee}`}&lt;/div&gt;
+        &lt;div&gt;Total: ₹{cartTotal}&lt;/div&gt;
+        {/* Coupon Form */}
+        &lt;input value={coupon} onChange={(e) => setCoupon(e.target.value)} placeholder="VASTRIKA20" /&gt;
+        &lt;button onClick={() => applyPromo(coupon)}&gt;Apply&lt;/button&gt;
+        &lt;button className="btn btn-primary" onClick={openCheckout}&gt;Proceed to Checkout&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+      </div>
+      <div class="explain-box">
+        <h4>🔍 લાઈન-બાય-લાઈન સમજુતી:</h4>
+        <ul>
+          <li>ઓર્ડર સમરી, ડિસ્કાઉન્ટ, શિપિંગ કેલ્ક્યુલેશન અને કૂપન એન્જિન સાથે સંપૂર્ણ ખરીદી પ્રક્રિયા પૂરી કરે છે.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Wishlist, About & Contact -->
+    <section class="section-card" id="page-wishlist">
+      <h2><span class="file-tag">Wishlist.jsx</span>, <span class="file-tag">About.jsx</span> &amp; <span class="file-tag">Contact.jsx</span></h2>
+      <div class="explain-box">
+        <h4>🔍 પેજીસની સમજુતી:</h4>
+        <ul>
+          <li><strong><code>Wishlist.jsx</code></strong>: યુઝરે સેવ કરેલી આઈટમ્સ દર્શાવે છે અને "Move to Bag" દબાવતાં કાર્ટમાં શિફ્ટ કરે છે.</li>
+          <li><strong><code>About.jsx</code></strong>: વાસ્ત્રિકાની બ્રાન્ડ સ્ટોરી અને વારાણસી/ચંદેરીના કારીગરોની વિગતો દર્શાવે છે.</li>
+          <li><strong><code>Contact.jsx</code></strong>: ગ્રાહક સેવા સંપર્ક ફોર્મ, વોટ્સએપ ચેટ લિંક અને FAQs Accordion દર્શાવે છે.</li>
         </ul>
       </div>
     </section>
