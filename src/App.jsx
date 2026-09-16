@@ -6,6 +6,7 @@ import CartDrawer from './components/CartDrawer';
 import SearchBar from './components/SearchBar';
 import QuickViewModal from './components/QuickViewModal';
 import CheckoutModal from './components/CheckoutModal';
+import AuthModal from './components/AuthModal';
 import Toast from './components/Toast';
 
 // Pages
@@ -55,6 +56,7 @@ function App() {
       <SearchBar />
       <QuickViewModal />
       <CheckoutModal />
+      <AuthModal />
       <Toast />
     </div>
   );
