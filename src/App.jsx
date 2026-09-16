@@ -33,12 +33,10 @@ function App() {
 
   // Prompt Login/Register on website open if user is not logged in
   useEffect(() => {
-    const hasPrompted = sessionStorage.getItem('vastrika_initial_auth_prompt');
-    if (!isAuthenticated && !hasPrompted) {
+    if (!isAuthenticated) {
       const timer = setTimeout(() => {
         openLogin();
-        sessionStorage.setItem('vastrika_initial_auth_prompt', 'true');
-      }, 700);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [isAuthenticated, openLogin]);
