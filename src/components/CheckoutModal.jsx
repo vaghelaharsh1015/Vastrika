@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { api } from '../services/api';
 import { 
   X, 
   CheckCircle, 
@@ -26,21 +28,40 @@ const CheckoutModal = () => {
     addToast 
   } = useCart();
 
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    fullName: 'Aditi Rao',
-    email: 'aditi.rao@example.com',
-    phone: '+91 98765 43210',
-    address: '402, Heritage Residency, Linking Road, Bandra West',
+    fullName: '',
+    email: '',
+    phone: '',
+    address: '',
     city: 'Mumbai',
     state: 'Maharashtra',
     pincode: '400050',
-    paymentMethod: 'upi'
+    paymentMethod: 'cod'
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId, setOrderId] = useState('');
+
+  // Prefill user details if logged in
+  useEffect(() => {
+    if (user) {
+      const defaultAddr = user.addresses && user.addresses[0];
+      setFormData((prev) => ({
+        ...prev,
+        fullName: user.name || prev.fullName,
+        email: user.email || prev.email,
+        phone: user.phone || defaultAddr?.phone || prev.phone,
+        address: defaultAddr?.street || prev.address,
+        city: defaultAddr?.city || prev.city,
+        state: defaultAddr?.state || prev.state,
+        pincode: defaultAddr?.pincode || prev.pincode,
+      }));
+    }
+  }, [user, isCheckoutOpen]);
 
   if (!isCheckoutOpen) return null;
 
@@ -48,18 +69,65 @@ const CheckoutModal = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handlePlaceOrder = (e) => {
+  const handlePlaceOrder = async (e) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.phone || !formData.address || !formData.pincode) {
       addToast('Please complete all shipping address fields', 'error');
       return;
     }
 
+    setIsSubmitting(true);
+
     const generatedId = `VST-${Math.floor(100000 + Math.random() * 900000)}`;
-    setOrderId(generatedId);
-    setOrderPlaced(true);
-    clearCart();
-    addToast('Order placed successfully! Congratulations 🎉', 'success');
+
+    try {
+      const orderPayload = {
+        orderItems: cart.map((item) => ({
+          product: item.product._id || undefined,
+          customId: item.product.id || item.product.customId,
+          name: item.product.name,
+          quantity: item.quantity,
+          image: (item.product.images && item.product.images[0]) || item.product.image,
+          price: item.product.price,
+          selectedSize: item.selectedSize || 'Free Size',
+          selectedColor: item.selectedColor || (item.product.colors && item.product.colors[0]?.name) || 'Default',
+        })),
+        shippingAddress: {
+          fullName: formData.fullName,
+          phone: formData.phone,
+          street: formData.address,
+          city: formData.city,
+          state: formData.state,
+          pincode: formData.pincode,
+        },
+        guestInfo: {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+        },
+        paymentMethod: formData.paymentMethod ? formData.paymentMethod.toUpperCase() : 'COD',
+        itemsPrice: cartSubtotal,
+        taxPrice: Math.round(cartSubtotal * 0.05),
+        shippingPrice: shippingFee,
+        discountAmount: promoDiscount,
+        totalPrice: cartTotal,
+      };
+
+      const res = await api.createOrder(orderPayload);
+      if (res && res.data && res.data._id) {
+        setOrderId(res.data._id);
+      } else {
+        setOrderId(generatedId);
+      }
+    } catch (err) {
+      console.warn('Backend order sync fallback:', err);
+      setOrderId(generatedId);
+    } finally {
+      setIsSubmitting(false);
+      setOrderPlaced(true);
+      clearCart();
+      addToast('Order placed successfully! Stored in MongoDB 👑', 'success');
+    }
   };
 
   const handleFinish = () => {

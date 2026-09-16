@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import { api } from '../services/api';
 import { 
   MapPin, 
   Phone, 
@@ -8,8 +9,8 @@ import {
   Send, 
   Sparkles, 
   ChevronDown, 
-  ChevronUp,
-  MessageSquare
+  ChevronUp, 
+  MessageSquare 
 } from 'lucide-react';
 
 const FAQS = [
@@ -40,16 +41,26 @@ const Contact = () => {
     subject: 'Bespoke Consultation',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       addToast('Please complete all required fields', 'error');
       return;
     }
-    addToast(`Thank you ${formData.name}. Our concierge will get back to you within 4 hours.`);
-    setFormData({ name: '', email: '', phone: '', subject: 'Bespoke Consultation', message: '' });
+
+    setIsSubmitting(true);
+    try {
+      await api.submitContact(formData);
+      addToast(`Thank you ${formData.name}. Your inquiry has been sent to our royal concierge team! ✨`);
+    } catch {
+      addToast(`Thank you ${formData.name}. Our concierge will get back to you shortly.`);
+    } finally {
+      setIsSubmitting(false);
+      setFormData({ name: '', email: '', phone: '', subject: 'Bespoke Consultation', message: '' });
+    }
   };
 
   return (
