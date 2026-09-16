@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { X, Lock, Mail, User as UserIcon, Phone, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
+import { X, Lock, Mail, User as UserIcon, Phone, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 
 const AuthModal = () => {
   const {
@@ -42,7 +42,7 @@ const AuthModal = () => {
         addToast(`Welcome back, ${res.user.name || 'Patron'}! ✨`, 'success');
         setFormData({ name: '', email: '', password: '', phone: '' });
       } else {
-        setErrorMessage(res.message || 'Invalid email or password. If you do not have an account, please Register first.');
+        setErrorMessage(res.message || 'Invalid email or password. If you are a new patron, please click "Register (New User)" below.');
       }
     } else {
       if (!formData.name || !formData.email || !formData.password) {
@@ -66,39 +66,40 @@ const AuthModal = () => {
 
   return (
     <div
-      className="modal-overlay"
-      onClick={closeAuthModal}
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.75)',
-        backdropFilter: 'blur(6px)',
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: 'rgba(0, 0, 0, 0.82)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 9999,
+        zIndex: 999999,
         padding: '16px',
+        boxSizing: 'border-box',
       }}
+      onClick={closeAuthModal}
     >
       <div
-        className="modal-content"
-        onClick={(e) => e.stopPropagation()}
         style={{
           maxWidth: '460px',
           width: '100%',
-          background: '#1A1412',
-          border: '1px solid rgba(197, 160, 89, 0.4)',
+          backgroundColor: '#16110F',
+          border: '1px solid #C5A059',
           borderRadius: '16px',
-          padding: '28px 32px',
+          padding: '28px 30px',
           color: '#F9F6F0',
           position: 'relative',
-          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85)',
-          maxHeight: '90vh',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(197, 160, 89, 0.15)',
+          maxHeight: '92vh',
           overflowY: 'auto',
+          boxSizing: 'border-box',
         }}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Prominent Close Button */}
         <button
@@ -107,49 +108,49 @@ const AuthModal = () => {
             position: 'absolute',
             top: '16px',
             right: '16px',
-            width: '36px',
-            height: '36px',
+            width: '38px',
+            height: '38px',
             borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.08)',
-            border: '1px solid rgba(197, 160, 89, 0.3)',
-            color: '#C5A059',
+            backgroundColor: '#2A201C',
+            border: '1px solid #C5A059',
+            color: '#F9F6F0',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            transition: 'all 0.2s ease',
+            zIndex: 10,
           }}
-          aria-label="Close modal"
+          aria-label="Close"
           title="Close and continue browsing"
         >
-          <X size={18} />
+          <X size={20} color="#C5A059" />
         </button>
 
         {/* Header Emblem */}
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '18px' }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '46px',
-              height: '46px',
+              width: '48px',
+              height: '48px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, rgba(197, 160, 89, 0.25), rgba(128, 0, 32, 0.25))',
-              border: '1px solid #C5A059',
+              background: 'linear-gradient(135deg, rgba(197, 160, 89, 0.3), rgba(128, 0, 32, 0.3))',
+              border: '1.5px solid #C5A059',
               color: '#C5A059',
               marginBottom: '10px',
             }}
           >
-            <Sparkles size={22} />
+            <Sparkles size={24} />
           </div>
-          <h2 style={{ fontFamily: 'Cinzel, serif', fontSize: '1.5rem', color: '#F9F6F0', margin: '0 0 6px' }}>
+          <h2 style={{ fontFamily: 'Cinzel, Georgia, serif', fontSize: '1.55rem', color: '#F9F6F0', margin: '0 0 6px' }}>
             {authMode === 'login' ? 'Patron Sign In' : 'Join Vastrika Club'}
           </h2>
-          <p style={{ fontSize: '0.82rem', color: '#B3A898', margin: 0 }}>
+          <p style={{ fontSize: '0.84rem', color: '#C8BFB0', margin: 0, lineHeight: 1.4 }}>
             {authMode === 'login'
-              ? 'Please sign in to access your wardrobe, add items to cart & track orders.'
-              : 'New to Vastrika? Please register first to create your patron account.'}
+              ? 'Sign in to access your luxury bag, wishlist & track orders.'
+              : 'Create your royal patron profile for personalized couture & benefits.'}
           </p>
         </div>
 
@@ -157,11 +158,11 @@ const AuthModal = () => {
         <div
           style={{
             display: 'flex',
-            background: '#241D1A',
+            backgroundColor: '#221915',
             borderRadius: '10px',
             padding: '4px',
-            marginBottom: '20px',
-            border: '1px solid rgba(197, 160, 89, 0.2)',
+            marginBottom: '18px',
+            border: '1px solid rgba(197, 160, 89, 0.3)',
           }}
         >
           <button
@@ -176,9 +177,9 @@ const AuthModal = () => {
               borderRadius: '8px',
               border: 'none',
               background: authMode === 'login' ? 'linear-gradient(135deg, #C5A059, #9B783E)' : 'transparent',
-              color: authMode === 'login' ? '#1A1412' : '#B3A898',
-              fontWeight: 600,
-              fontSize: '0.85rem',
+              color: authMode === 'login' ? '#140E0C' : '#B8AD9E',
+              fontWeight: 700,
+              fontSize: '0.88rem',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
             }}
@@ -197,9 +198,9 @@ const AuthModal = () => {
               borderRadius: '8px',
               border: 'none',
               background: authMode === 'register' ? 'linear-gradient(135deg, #C5A059, #9B783E)' : 'transparent',
-              color: authMode === 'register' ? '#1A1412' : '#B3A898',
-              fontWeight: 600,
-              fontSize: '0.85rem',
+              color: authMode === 'register' ? '#140E0C' : '#B8AD9E',
+              fontWeight: 700,
+              fontSize: '0.88rem',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
             }}
@@ -212,13 +213,14 @@ const AuthModal = () => {
         {errorMessage && (
           <div
             style={{
-              background: 'rgba(239, 68, 68, 0.15)',
-              border: '1px solid rgba(239, 68, 68, 0.4)',
+              backgroundColor: 'rgba(239, 68, 68, 0.2)',
+              border: '1px solid #EF4444',
               color: '#FCA5A5',
               padding: '10px 14px',
               borderRadius: '8px',
-              fontSize: '0.82rem',
+              fontSize: '0.84rem',
               marginBottom: '16px',
+              lineHeight: 1.4,
             }}
           >
             {errorMessage}
@@ -229,11 +231,11 @@ const AuthModal = () => {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {authMode === 'register' && (
             <div>
-              <label style={{ display: 'block', fontSize: '0.78rem', color: '#C5A059', marginBottom: '5px', letterSpacing: '0.04em' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', color: '#D4AF37', marginBottom: '5px', fontWeight: 600 }}>
                 FULL NAME *
               </label>
               <div style={{ position: 'relative' }}>
-                <UserIcon size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#8C8275' }} />
+                <UserIcon size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#C5A059' }} />
                 <input
                   type="text"
                   name="name"
@@ -244,12 +246,13 @@ const AuthModal = () => {
                   style={{
                     width: '100%',
                     padding: '11px 14px 11px 38px',
-                    background: '#241D1A',
-                    border: '1px solid #3D332A',
+                    backgroundColor: '#241B17',
+                    border: '1px solid #4A3A2F',
                     borderRadius: '8px',
                     color: '#FFF',
                     fontSize: '0.9rem',
                     outline: 'none',
+                    boxSizing: 'border-box',
                   }}
                 />
               </div>
@@ -257,11 +260,11 @@ const AuthModal = () => {
           )}
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.78rem', color: '#C5A059', marginBottom: '5px', letterSpacing: '0.04em' }}>
+            <label style={{ display: 'block', fontSize: '0.8rem', color: '#D4AF37', marginBottom: '5px', fontWeight: 600 }}>
               EMAIL ADDRESS *
             </label>
             <div style={{ position: 'relative' }}>
-              <Mail size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#8C8275' }} />
+              <Mail size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#C5A059' }} />
               <input
                 type="email"
                 name="email"
@@ -272,12 +275,13 @@ const AuthModal = () => {
                 style={{
                   width: '100%',
                   padding: '11px 14px 11px 38px',
-                  background: '#241D1A',
-                  border: '1px solid #3D332A',
+                  backgroundColor: '#241B17',
+                  border: '1px solid #4A3A2F',
                   borderRadius: '8px',
                   color: '#FFF',
                   fontSize: '0.9rem',
                   outline: 'none',
+                  boxSizing: 'border-box',
                 }}
               />
             </div>
@@ -285,11 +289,11 @@ const AuthModal = () => {
 
           {authMode === 'register' && (
             <div>
-              <label style={{ display: 'block', fontSize: '0.78rem', color: '#C5A059', marginBottom: '5px', letterSpacing: '0.04em' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', color: '#D4AF37', marginBottom: '5px', fontWeight: 600 }}>
                 PHONE NUMBER
               </label>
               <div style={{ position: 'relative' }}>
-                <Phone size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#8C8275' }} />
+                <Phone size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#C5A059' }} />
                 <input
                   type="tel"
                   name="phone"
@@ -299,12 +303,13 @@ const AuthModal = () => {
                   style={{
                     width: '100%',
                     padding: '11px 14px 11px 38px',
-                    background: '#241D1A',
-                    border: '1px solid #3D332A',
+                    backgroundColor: '#241B17',
+                    border: '1px solid #4A3A2F',
                     borderRadius: '8px',
                     color: '#FFF',
                     fontSize: '0.9rem',
                     outline: 'none',
+                    boxSizing: 'border-box',
                   }}
                 />
               </div>
@@ -312,11 +317,11 @@ const AuthModal = () => {
           )}
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.78rem', color: '#C5A059', marginBottom: '5px', letterSpacing: '0.04em' }}>
+            <label style={{ display: 'block', fontSize: '0.8rem', color: '#D4AF37', marginBottom: '5px', fontWeight: 600 }}>
               PASSWORD *
             </label>
             <div style={{ position: 'relative' }}>
-              <Lock size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#8C8275' }} />
+              <Lock size={16} style={{ position: 'absolute', left: '12px', top: '13px', color: '#C5A059' }} />
               <input
                 type="password"
                 name="password"
@@ -328,12 +333,13 @@ const AuthModal = () => {
                 style={{
                   width: '100%',
                   padding: '11px 14px 11px 38px',
-                  background: '#241D1A',
-                  border: '1px solid #3D332A',
+                  backgroundColor: '#241B17',
+                  border: '1px solid #4A3A2F',
                   borderRadius: '8px',
                   color: '#FFF',
                   fontSize: '0.9rem',
                   outline: 'none',
+                  boxSizing: 'border-box',
                 }}
               />
             </div>
@@ -346,18 +352,18 @@ const AuthModal = () => {
               marginTop: '6px',
               padding: '13px',
               background: 'linear-gradient(135deg, #C5A059, #9B783E)',
-              color: '#1A1412',
-              fontWeight: 700,
+              color: '#140E0C',
+              fontWeight: 800,
               fontSize: '0.92rem',
-              letterSpacing: '0.05em',
+              letterSpacing: '0.04em',
               border: 'none',
               borderRadius: '8px',
               cursor: isLoading ? 'not-allowed' : 'pointer',
-              transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: '8px',
+              boxShadow: '0 4px 14px rgba(197, 160, 89, 0.4)',
             }}
           >
             <span>
@@ -371,19 +377,19 @@ const AuthModal = () => {
           </button>
         </form>
 
-        {/* Demo Credentials Helper */}
+        {/* Demo Accounts Quick-Fill Box */}
         <div
           style={{
             marginTop: '16px',
             padding: '10px 12px',
-            background: 'rgba(197, 160, 89, 0.08)',
-            border: '1px dashed rgba(197, 160, 89, 0.3)',
+            backgroundColor: '#201814',
+            border: '1px dashed #C5A059',
             borderRadius: '8px',
-            fontSize: '0.76rem',
-            color: '#B3A898',
+            fontSize: '0.78rem',
+            color: '#B8AD9E',
           }}
         >
-          <strong style={{ color: '#C5A059' }}>Quick Demo Login:</strong>
+          <strong style={{ color: '#D4AF37' }}>Quick Demo Login:</strong>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
             <span
               onClick={() => {
@@ -391,7 +397,7 @@ const AuthModal = () => {
                 setFormData({ name: '', email: 'user@vastrika.com', password: 'User@123', phone: '' });
                 setErrorMessage('');
               }}
-              style={{ color: '#D8B168', cursor: 'pointer', textDecoration: 'underline' }}
+              style={{ color: '#E5C479', cursor: 'pointer', textDecoration: 'underline', fontWeight: 600 }}
             >
               Demo User (user@vastrika.com)
             </span>
@@ -401,15 +407,15 @@ const AuthModal = () => {
                 setFormData({ name: '', email: 'admin@vastrika.com', password: 'Admin@123', phone: '' });
                 setErrorMessage('');
               }}
-              style={{ color: '#D8B168', cursor: 'pointer', textDecoration: 'underline' }}
+              style={{ color: '#E5C479', cursor: 'pointer', textDecoration: 'underline', fontWeight: 600 }}
             >
               Admin (admin@vastrika.com)
             </span>
           </div>
         </div>
 
-        {/* Bottom Switcher */}
-        <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '0.82rem', color: '#A0988A' }}>
+        {/* Switch Link */}
+        <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '0.84rem', color: '#B0A596' }}>
           {authMode === 'login' ? (
             <>
               Don't have an account yet?{' '}
@@ -422,10 +428,11 @@ const AuthModal = () => {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#C5A059',
-                  fontWeight: 600,
+                  color: '#D4AF37',
+                  fontWeight: 700,
                   cursor: 'pointer',
                   textDecoration: 'underline',
+                  fontSize: '0.84rem',
                 }}
               >
                 Register First
@@ -443,10 +450,11 @@ const AuthModal = () => {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#C5A059',
-                  fontWeight: 600,
+                  color: '#D4AF37',
+                  fontWeight: 700,
                   cursor: 'pointer',
                   textDecoration: 'underline',
+                  fontSize: '0.84rem',
                 }}
               >
                 Sign In here
