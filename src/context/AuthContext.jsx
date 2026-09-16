@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { api } from '../services/api';
 
 const AuthContext = createContext();
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user]);
 
-  const login = async (email, password) => {
+  const login = useCallback(async (email, password) => {
     setIsLoading(true);
     try {
       const res = await api.login({ email, password });
@@ -63,9 +63,9 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
-  const register = async (name, email, password, phone) => {
+  const register = useCallback(async (name, email, password, phone) => {
     setIsLoading(true);
     try {
       const res = await api.register({ name, email, password, phone });
@@ -82,28 +82,28 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
     setToken(null);
     localStorage.removeItem('vastrika_user');
     localStorage.removeItem('vastrika_token');
-  };
+  }, []);
 
-  const openLogin = () => {
+  const openLogin = useCallback(() => {
     setAuthMode('login');
     setIsAuthModalOpen(true);
-  };
+  }, []);
 
-  const openRegister = () => {
+  const openRegister = useCallback(() => {
     setAuthMode('register');
     setIsAuthModalOpen(true);
-  };
+  }, []);
 
-  const closeAuthModal = () => {
+  const closeAuthModal = useCallback(() => {
     setIsAuthModalOpen(false);
-  };
+  }, []);
 
   return (
     <AuthContext.Provider

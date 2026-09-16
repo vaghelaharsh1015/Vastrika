@@ -30,16 +30,18 @@ const ScrollToTop = () => {
 
 function App() {
   const { isAuthenticated, openLogin } = useAuth();
+  const hasPromptedRef = React.useRef(false);
 
-  // Prompt Login/Register on website open if user is not logged in
+  // Prompt Login/Register strictly ONCE on initial website load
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated && !hasPromptedRef.current) {
+      hasPromptedRef.current = true;
       const timer = setTimeout(() => {
         openLogin();
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [isAuthenticated, openLogin]);
+  }, []);
 
   return (
     <div className="app-container">
