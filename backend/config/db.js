@@ -1,15 +1,25 @@
 import mongoose from 'mongoose';
 
+const DEFAULT_URI =
+  'mongodb+srv://harsh_vaghela:Harsh_2008@cluster0.n6te9ga.mongodb.net/vastrika?retryWrites=true&w=majority&appName=Cluster0';
+
+let cachedConnection = null;
+
 export const connectDB = async () => {
+  if (cachedConnection && mongoose.connection.readyState === 1) {
+    return cachedConnection;
+  }
+
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/vastrika', {
+    const uri = process.env.MONGO_URI || DEFAULT_URI;
+    const conn = await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 5000,
     });
-    console.log(`\x1b[32m[MongoDB Connected]: ${conn.connection.host} (${conn.connection.name})\x1b[0m`);
+    cachedConnection = conn;
+    console.log(`[MongoDB Connected]: ${conn.connection.host} (${conn.connection.name})`);
     return conn;
   } catch (error) {
-    console.error(`\x1b[31m[MongoDB Connection Error]: ${error.message}\x1b[0m`);
-    console.log('\x1b[33m[Notice]: If local MongoDB is not installed/running, please make sure MongoDB Service or MongoDB Atlas URI is set in .env.\x1b[0m');
+    console.error(`[MongoDB Connection Error]: ${error.message}`);
     return null;
   }
 };
