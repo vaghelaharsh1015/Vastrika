@@ -8,6 +8,7 @@ import QuickViewModal from './components/QuickViewModal';
 import CheckoutModal from './components/CheckoutModal';
 import AuthModal from './components/AuthModal';
 import Toast from './components/Toast';
+import { useAuth } from './context/AuthContext';
 
 // Pages
 import Home from './pages/Home';
@@ -28,6 +29,20 @@ const ScrollToTop = () => {
 };
 
 function App() {
+  const { isAuthenticated, openLogin } = useAuth();
+
+  // Prompt Login/Register on website open if user is not logged in
+  useEffect(() => {
+    const hasPrompted = sessionStorage.getItem('vastrika_initial_auth_prompt');
+    if (!isAuthenticated && !hasPrompted) {
+      const timer = setTimeout(() => {
+        openLogin();
+        sessionStorage.setItem('vastrika_initial_auth_prompt', 'true');
+      }, 700);
+      return () => clearTimeout(timer);
+    }
+  }, [isAuthenticated, openLogin]);
+
   return (
     <div className="app-container">
       <ScrollToTop />

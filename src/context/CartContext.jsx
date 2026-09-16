@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { PROMOS } from '../data/products';
+import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
 
@@ -12,6 +13,8 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }) => {
+  const { isAuthenticated, openLogin } = useAuth();
+
   // 1. Cart State with LocalStorage
   const [cart, setCart] = useState(() => {
     try {
@@ -75,6 +78,12 @@ export const CartProvider = ({ children }) => {
 
   // Cart Operations
   const addToCart = (product, size = null, quantity = 1) => {
+    if (!isAuthenticated) {
+      addToast('Please Sign In or Register to add items to your cart! 👑', 'info');
+      openLogin();
+      return;
+    }
+
     const selectedSize = size || (product.sizes && product.sizes[0]) || 'Free Size';
     const qty = Math.max(1, parseInt(quantity, 10) || 1);
 
