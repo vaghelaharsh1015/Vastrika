@@ -833,7 +833,9 @@
   <!-- Presentation Main Container -->
   <main class="presentation-container" id="presentationContainer">
 
+    <!-- ========================================== -->
     <!-- SLIDE 1: Title & Project Architecture Overview -->
+    <!-- ========================================== -->
     <div class="slide-deck-card current-slide" data-slide="1">
       <div class="slide-header">
         <div class="slide-title-group">
@@ -848,6 +850,7 @@
         <span class="gujarati-expl">આ સ્લાઇડ આખા પ્રોજેક્ટનું આર્કિટેક્ચર અને સ્ટ્રક્ચર દર્શાવે છે.</span>
       </div>
       <div class="slide-body">
+        <!-- TOP: UI PREVIEW -->
         <div class="slide-ui-section">
           <div class="section-label">
             <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
@@ -868,6 +871,7 @@
                 </div>
               </div>
 
+              <!-- Module Flow Grid -->
               <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;">
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.3); padding: 12px; border-radius: 8px;">
                   <div style="font-size: 1.2rem;">📦</div>
@@ -894,6 +898,7 @@
           </div>
         </div>
 
+        <!-- BOTTOM: CODE -->
         <div class="slide-code-section">
           <div class="section-label">
             <span class="section-title">💻 2. Source Code & Configuration (નીચેનો કોડ)</span>
@@ -929,13 +934,2344 @@
       </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- SLIDE 2: index.html -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="2">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 02</span>
+          <h2 class="slide-heading">index.html - HTML5 Foundation & Luxury Fonts</h2>
+        </div>
+        <div class="file-path-badge">📁 index.html</div>
+        <span class="slide-role-tag">Entry Document</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Sets up Google Fonts (Cinzel, Plus Jakarta Sans, Fira Code), viewport meta & React root div.</span>
+        <span class="gujarati-expl">આ ફાઇલ બ્રાઉઝરમાં લક્ઝરી ફોન્ટ્સ અને React DOM Root (`&lt;div id="root"&gt;`) લોડ કરે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Browser Header & Fonts Rendering</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-window-header">
+              <div class="mockup-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="mockup-url-bar">index.html • Title: "Vastrika - Royal Indian Ethnic Wear"</div>
+            </div>
+            <div class="mockup-content" style="background: #FDFBF7; display: flex; gap: 20px; align-items: center;">
+              <div style="flex: 1; border-right: 1px solid #E8DFD3; padding-right: 16px;">
+                <div style="font-size: 0.75rem; color: #9D7B37; font-weight: 700; text-transform: uppercase;">Cinzel Font (Headings)</div>
+                <div style="font-family: 'Cinzel', serif; font-size: 1.4rem; color: #6B1724; font-weight: 800; margin: 4px 0;">VASTRIKA ROYAL COUTURE</div>
+                <div style="font-size: 0.8rem; color: #6B625C;">Traditional Craftsmanship Meets Modern Luxury</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 0.75rem; color: #9D7B37; font-weight: 700; text-transform: uppercase;">Plus Jakarta Sans (Body UI)</div>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: #201715; margin: 4px 0;">100% Handloom Silk & Zari Weaves</div>
+                <div style="font-size: 0.8rem; color: #6B625C;">Smooth readability, high conversion UI tokens.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (index.html)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 index.html</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">HTML5</span>
+            </div>
+            <pre class="code-block"><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="str">"en"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"icon"</span> <span class="attr">type</span>=<span class="str">"image/svg+xml"</span> <span class="attr">href</span>=<span class="str">"/vite.svg"</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="str">"viewport"</span> <span class="attr">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Vastrika - Royal Indian Ethnic Wear<span class="tag">&lt;/title&gt;</span>
+    <span class="cm">&lt;!-- Preconnect to Google Fonts --&gt;</span>
+    <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"preconnect"</span> <span class="attr">href</span>=<span class="str">"https://fonts.googleapis.com"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"preconnect"</span> <span class="attr">href</span>=<span class="str">"https://fonts.gstatic.com"</span> <span class="attr">crossorigin</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="str">"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="str">"root"</span><span class="tag">&gt;&lt;/div&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="str">"module"</span> <span class="attr">src</span>=<span class="str">"/src/main.jsx"</span><span class="tag">&gt;&lt;/script&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 3: src/main.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="3">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 03</span>
+          <h2 class="slide-heading">src/main.jsx - React 18 Entry Point & Providers</h2>
+        </div>
+        <div class="file-path-badge">📁 src/main.jsx</div>
+        <span class="slide-role-tag">Bootstrapper</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Initializes React Root, injects BrowserRouter for routing and CartProvider for global cart state.</span>
+        <span class="gujarati-expl">આ ફાઇલ React એપ્લિકેશનને `root` એલિમેન્ટ સાથે જોડે છે અને ગ્લોબલ પ્રોવાઇડર એક્ટિવેટ કરે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Provider Hierarchy Tree</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #181313; color: #FFE29F; padding: 18px; display: flex; align-items: center; justify-content: space-around;">
+              <div style="background: rgba(107,23,36,0.6); border: 1px solid #D4AF37; padding: 10px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.75rem; color: #E8DFD3;">DOM Root</div>
+                <div style="font-weight: 700; color: #FFE29F;">createRoot()</div>
+              </div>
+              <div style="font-size: 1.2rem; color: #D4AF37;">➔</div>
+              <div style="background: rgba(212,175,55,0.15); border: 1px solid #D4AF37; padding: 10px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.75rem; color: #E8DFD3;">URL Router</div>
+                <div style="font-weight: 700; color: #FFE29F;">&lt;BrowserRouter&gt;</div>
+              </div>
+              <div style="font-size: 1.2rem; color: #D4AF37;">➔</div>
+              <div style="background: rgba(107,23,36,0.6); border: 1px solid #D4AF37; padding: 10px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.75rem; color: #E8DFD3;">State Engine</div>
+                <div style="font-weight: 700; color: #FFE29F;">&lt;CartProvider&gt;</div>
+              </div>
+              <div style="font-size: 1.2rem; color: #D4AF37;">➔</div>
+              <div style="background: #2D1418; border: 1px solid #56D4C8; padding: 10px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.75rem; color: #56D4C8;">Root Component</div>
+                <div style="font-weight: 700; color: #FFFFFF;">&lt;App /&gt;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/main.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/main.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">JavaScript XML (JSX)</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> ReactDOM <span class="kw">from</span> <span class="str">'react-dom/client'</span>;
+<span class="kw">import</span> { BrowserRouter } <span class="kw">from</span> <span class="str">'react-router-dom'</span>;
+<span class="kw">import</span> App <span class="kw">from</span> <span class="str">'./App'</span>;
+<span class="kw">import</span> { CartProvider } <span class="kw">from</span> <span class="str">'./context/CartContext'</span>;
+<span class="kw">import</span> <span class="str">'./index.css'</span>;
+
+ReactDOM.<span class="fn">createRoot</span>(document.<span class="fn">getElementById</span>(<span class="str">'root'</span>)).<span class="fn">render</span>(
+  <span class="tag">&lt;React.StrictMode&gt;</span>
+    <span class="tag">&lt;BrowserRouter&gt;</span>
+      <span class="tag">&lt;CartProvider&gt;</span>
+        <span class="tag">&lt;App /&gt;</span>
+      <span class="tag">&lt;/CartProvider&gt;</span>
+    <span class="tag">&lt;/BrowserRouter&gt;</span>
+  <span class="tag">&lt;/React.StrictMode&gt;</span>
+);</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 4: src/App.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="4">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 04</span>
+          <h2 class="slide-heading">src/App.jsx - Master Layout & Dynamic Route Switcher</h2>
+        </div>
+        <div class="file-path-badge">📁 src/App.jsx</div>
+        <span class="slide-role-tag">Core Layout & Routes</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Declares all 7 URL routes (`/`, `/shop`, `/product/:id`, `/cart`, etc.) and mounts global drawers.</span>
+        <span class="gujarati-expl">આ ફાઇલ સાઇટનું મેઈન લેઆઉટ, નેવિગેશન રાઉટ્સ અને મોડલ્સ (CartDrawer, SearchBar, Toast) મેનેજ કરે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">App Master Shell Layout</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 14px;">
+              <!-- Sticky Navbar wireframe -->
+              <div style="background: #190E0C; color: #D4AF37; padding: 10px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span style="font-family: 'Cinzel'; font-weight: 700;">&lt;Navbar /&gt; (Sticky Header)</span>
+                <span style="font-size: 0.75rem; color: #FFF;">Cart(3) • Wishlist(2) • Search</span>
+              </div>
+              <!-- Main view wireframe -->
+              <div style="background: #FFF; border: 2px dashed #6B1724; padding: 24px; border-radius: 8px; text-align: center; margin-bottom: 10px;">
+                <span style="color: #6B1724; font-weight: 700; font-size: 0.95rem;">&lt;Routes&gt; ➔ Active Page: Home / Shop / ProductPage / Cart / Wishlist / About / Contact</span>
+              </div>
+              <!-- Footer wireframe -->
+              <div style="background: #190E0C; color: #E8DFD3; padding: 10px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.8rem;">&lt;Footer /&gt; (Royal Footer & Quick Links)</span>
+                <span style="font-size: 0.75rem; color: #D4AF37;">Drawers: CartDrawer, QuickView, Checkout, Toast</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/App.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/App.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">React Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useEffect } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { Routes, Route, useLocation } <span class="kw">from</span> <span class="str">'react-router-dom'</span>;
+<span class="kw">import</span> Navbar <span class="kw">from</span> <span class="str">'./components/Navbar'</span>;
+<span class="kw">import</span> Footer <span class="kw">from</span> <span class="str">'./components/Footer'</span>;
+<span class="kw">import</span> CartDrawer <span class="kw">from</span> <span class="str">'./components/CartDrawer'</span>;
+<span class="kw">import</span> SearchBar <span class="kw">from</span> <span class="str">'./components/SearchBar'</span>;
+<span class="kw">import</span> QuickViewModal <span class="kw">from</span> <span class="str">'./components/QuickViewModal'</span>;
+<span class="kw">import</span> CheckoutModal <span class="kw">from</span> <span class="str">'./components/CheckoutModal'</span>;
+<span class="kw">import</span> Toast <span class="kw">from</span> <span class="str">'./components/Toast'</span>;
+
+<span class="cm">// Scroll to top automatically on route change</span>
+<span class="kw">const</span> <span class="fn">ScrollToTop</span> = () =&gt; {
+  <span class="kw">const</span> { pathname } = <span class="fn">useLocation</span>();
+  <span class="fn">useEffect</span>(() =&gt; { window.<span class="fn">scrollTo</span>(<span class="num">0</span>, <span class="num">0</span>); }, [pathname]);
+  <span class="kw">return</span> <span class="num">null</span>;
+};
+
+<span class="kw">function</span> <span class="fn">App</span>() {
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"app-container"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;ScrollToTop /&gt;</span>
+      <span class="tag">&lt;Navbar /&gt;</span>
+      <span class="tag">&lt;main</span> <span class="attr">style</span>={{ flexGrow: <span class="num">1</span> }}<span class="tag">&gt;</span>
+        <span class="tag">&lt;Routes&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/"</span> <span class="attr">element</span>={<span class="tag">&lt;Home /&gt;</span>} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/shop"</span> <span class="attr">element</span>={<span class="tag">&lt;Shop /&gt;</span>} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/product/:id"</span> <span class="attr">element</span>={<span class="tag">&lt;ProductPage /&gt;</span>} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/cart"</span> <span class="attr">element</span>={<span class="tag">&lt;Cart /&gt;</span>} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/wishlist"</span> <span class="attr">element</span>={<span class="tag">&lt;Wishlist /&gt;</span>} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/about"</span> <span class="attr">element</span>={<span class="tag">&lt;About /&gt;</span>} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;Route</span> <span class="attr">path</span>=<span class="str">"/contact"</span> <span class="attr">element</span>={<span class="tag">&lt;Contact /&gt;</span>} <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/Routes&gt;</span>
+      <span class="tag">&lt;/main&gt;</span>
+      <span class="tag">&lt;Footer /&gt;</span>
+      <span class="tag">&lt;CartDrawer /&gt;</span>
+      <span class="tag">&lt;SearchBar /&gt;</span>
+      <span class="tag">&lt;QuickViewModal /&gt;</span>
+      <span class="tag">&lt;CheckoutModal /&gt;</span>
+      <span class="tag">&lt;Toast /&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 5: src/context/CartContext.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="5">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 05</span>
+          <h2 class="slide-heading">CartContext.jsx - Central Reactive State Hub</h2>
+        </div>
+        <div class="file-path-badge">📁 src/context/CartContext.jsx</div>
+        <span class="slide-role-tag">Global State (Context API)</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Manages Cart, Wishlist, LocalStorage persistence, promo discount codes, and toast alerts.</span>
+        <span class="gujarati-expl">કાર્ટમાં પ્રોડક્ટ ઉમેરવી, ડીલીટ કરવી, કુપન કોડ અને લોકલસ્ટોરેજ આ ફાઈલમાં સંચાલિત થાય છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Live State Variables & Calculations</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #150E0F; color: #F7F3EE; padding: 18px;">
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                <div style="background: #231618; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px;">
+                  <div style="font-size: 0.72rem; color: #FFE29F; font-weight: 700;">CART STATE</div>
+                  <div style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF; margin: 4px 0;">3 Items In Bag</div>
+                  <div style="font-size: 0.75rem; color: #56D4C8;">Synced with LocalStorage</div>
+                </div>
+                <div style="background: #231618; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px;">
+                  <div style="font-size: 0.72rem; color: #FFE29F; font-weight: 700;">PROMO SYSTEM</div>
+                  <div style="font-size: 1.2rem; font-weight: 800; color: #FFBD2E; margin: 4px 0;">VASTRIKA20 (20% OFF)</div>
+                  <div style="font-size: 0.75rem; color: #E8DFD3;">Discount: -₹3,998 applied</div>
+                </div>
+                <div style="background: #231618; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px;">
+                  <div style="font-size: 0.72rem; color: #FFE29F; font-weight: 700;">ORDER TOTAL</div>
+                  <div style="font-size: 1.2rem; font-weight: 800; color: #FFE29F; margin: 4px 0;">₹16,792.00</div>
+                  <div style="font-size: 0.75rem; color: #27C93F;">✓ Free Royal Express Delivery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/context/CartContext.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/context/CartContext.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Context API Hook</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { createContext, useContext, useState, useEffect } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { PROMOS } <span class="kw">from</span> <span class="str">'../data/products'</span>;
+
+<span class="kw">const</span> CartContext = <span class="fn">createContext</span>();
+<span class="kw">export</span> <span class="kw">const</span> <span class="fn">useCart</span> = () =&gt; <span class="fn">useContext</span>(CartContext);
+
+<span class="kw">export</span> <span class="kw">const</span> <span class="fn">CartProvider</span> = ({ children }) =&gt; {
+  <span class="kw">const</span> [cart, setCart] = <span class="hook">useState</span>(() =&gt; JSON.<span class="fn">parse</span>(localStorage.<span class="fn">getItem</span>(<span class="str">'vastrika_cart'</span>)) || []);
+  <span class="kw">const</span> [wishlist, setWishlist] = <span class="hook">useState</span>(() =&gt; JSON.<span class="fn">parse</span>(localStorage.<span class="fn">getItem</span>(<span class="str">'vastrika_wishlist'</span>)) || []);
+  <span class="kw">const</span> [isCartOpen, setIsCartOpen] = <span class="hook">useState</span>(<span class="num">false</span>);
+  <span class="kw">const</span> [appliedPromo, setAppliedPromo] = <span class="hook">useState</span>(<span class="num">null</span>);
+
+  <span class="cm">// Add to cart handler</span>
+  <span class="kw">const</span> <span class="fn">addToCart</span> = (product, size = <span class="str">'M'</span>, quantity = <span class="num">1</span>) =&gt; {
+    <span class="fn">setCart</span>(prev =&gt; {
+      <span class="kw">const</span> idx = prev.<span class="fn">findIndex</span>(item =&gt; item.id === product.id && item.selectedSize === size);
+      <span class="kw">if</span> (idx &gt; -<span class="num">1</span>) {
+        <span class="kw">const</span> updated = [...prev];
+        updated[idx].quantity += quantity;
+        <span class="kw">return</span> updated;
+      }
+      <span class="kw">return</span> [...prev, { ...product, selectedSize: size, quantity }];
+    });
+    <span class="fn">addToast</span>(<span class="str">`Added "${product.name}" to cart!`</span>, <span class="str">'success'</span>);
+  };
+
+  <span class="kw">const</span> cartSubtotal = cart.<span class="fn">reduce</span>((acc, item) =&gt; acc + item.price * item.quantity, <span class="num">0</span>);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;CartContext.Provider</span> <span class="attr">value</span>={{ cart, wishlist, addToCart, cartSubtotal, appliedPromo, isCartOpen, setIsCartOpen }}<span class="tag">&gt;</span>
+      {children}
+    <span class="tag">&lt;/CartContext.Provider&gt;</span>
+  );
+};</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 6: src/data/products.js -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="6">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 06</span>
+          <h2 class="slide-heading">src/data/products.js - Product Catalog & Promos</h2>
+        </div>
+        <div class="file-path-badge">📁 src/data/products.js</div>
+        <span class="slide-role-tag">Catalog Data Engine</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Comprehensive product catalog with prices, ratings, high-res imagery, fabric details & coupon codes.</span>
+        <span class="gujarati-expl">આ ફાઈલમાં સાડીઓ, લહેંગા અને શેરવાનીનો સંપૂર્ણ ડેટા અને કુપન કોડ્સ સ્ટોર કરેલા છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Product Schema & Promo Codes</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 16px;">
+              <div style="display: flex; gap: 14px; align-items: center; justify-content: space-between;">
+                <div style="background: #FFFFFF; border: 1px solid #E8DFD3; padding: 12px; border-radius: 8px; flex: 1;">
+                  <span style="background: #6B1724; color: #FFF; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">ID: 1 • LEHENGAS</span>
+                  <div style="font-family: 'Cinzel'; font-size: 0.95rem; font-weight: 700; color: #201715; margin: 4px 0;">Royal Crimson Velvet Bridal Lehenga</div>
+                  <div style="color: #6B1724; font-weight: 800;">₹19,999 <span style="font-size: 0.75rem; color: #888; text-decoration: line-through;">₹24,999</span> (20% OFF)</div>
+                </div>
+                <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px; flex: 1;">
+                  <span style="background: #D4AF37; color: #120A0A; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 800;">ACTIVE PROMO CODE</span>
+                  <div style="font-family: 'Fira Code'; font-size: 1rem; font-weight: 700; color: #6B1724; margin: 4px 0;">VASTRIKA20 • 20% DISCOUNT</div>
+                  <div style="font-size: 0.75rem; color: #567;">Min Order: ₹2,999 • All Categories</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/data/products.js)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/data/products.js</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Catalog Data</span>
+            </div>
+            <pre class="code-block"><span class="kw">export</span> <span class="kw">const</span> PRODUCTS = [
+  {
+    id: <span class="num">1</span>,
+    name: <span class="str">"Royal Crimson Velvet Bridal Lehenga"</span>,
+    category: <span class="str">"lehengas"</span>,
+    price: <span class="num">19999</span>,
+    originalPrice: <span class="num">24999</span>,
+    rating: <span class="num">4.9</span>,
+    reviewsCount: <span class="num">142</span>,
+    image: <span class="str">"https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800"</span>,
+    sizes: [<span class="str">"S"</span>, <span class="str">"M"</span>, <span class="str">"L"</span>, <span class="str">"XL"</span>],
+    tag: <span class="str">"Bestseller"</span>,
+    inStock: <span class="num">true</span>,
+    fabric: <span class="str">"Pure Micro Velvet with Zari & Dori Embroidery"</span>
+  },
+  <span class="cm">/* Additional 15+ curated ethnic products */</span>
+];
+
+<span class="kw">export</span> <span class="kw">const</span> PROMOS = {
+  <span class="str">'VASTRIKA20'</span>: { discount: <span class="num">20</span>, minOrder: <span class="num">2999</span>, description: <span class="str">'Flat 20% Off'</span> },
+  <span class="str">'ROYAL10'</span>: { discount: <span class="num">10</span>, minOrder: <span class="num">1499</span>, description: <span class="str">'Royal 10% Welcome Discount'</span> }
+};</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 7: src/components/Navbar.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="7">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 07</span>
+          <h2 class="slide-heading">Navbar.jsx - Luxury Sticky Navigation & Badges</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/Navbar.jsx</div>
+        <span class="slide-role-tag">Top Navigation Header</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Responsive navigation with active route highlights, real-time cart/wishlist count badges and search modal trigger.</span>
+        <span class="gujarati-expl">આ ફાઈલ વેબસાઈટનું મુખ્ય નેવિગેશન બાર છે જેમાં કાર્ટ અને વિશલિસ્ટના લાઈવ કાઉન્ટ બેજ દેખાય છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Rendered Sticky Header</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #190E0C; padding: 14px 20px;">
+              <div class="vastrika-nav-mockup">
+                <div class="vastrika-nav-logo">VASTRIKA</div>
+                <div class="vastrika-nav-links">
+                  <span class="vastrika-nav-link active">Home</span>
+                  <span class="vastrika-nav-link" style="color: #E8DFD3;">Shop</span>
+                  <span class="vastrika-nav-link" style="color: #E8DFD3;">About Us</span>
+                  <span class="vastrika-nav-link" style="color: #E8DFD3;">Contact</span>
+                </div>
+                <div class="vastrika-nav-icons">
+                  <span style="color: #FFE29F; font-size: 0.9rem; cursor: pointer; border: 1px solid rgba(212,175,55,0.4); padding: 4px 10px; border-radius: 6px;">🔍 Search...</span>
+                  <div class="icon-badge-box" title="Wishlist">
+                    <span>❤️</span>
+                    <span class="badge-count">2</span>
+                  </div>
+                  <div class="icon-badge-box" title="Cart Drawer">
+                    <span>🛍️</span>
+                    <span class="badge-count">3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/Navbar.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/Navbar.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Navigation Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { Link, NavLink } <span class="kw">from</span> <span class="str">'react-router-dom'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+
+<span class="kw">function</span> <span class="fn">Navbar</span>() {
+  <span class="kw">const</span> { cart, wishlist, setIsCartOpen, setIsSearchOpen } = <span class="fn">useCart</span>();
+  <span class="kw">const</span> cartCount = cart.<span class="fn">reduce</span>((sum, item) =&gt; sum + item.quantity, <span class="num">0</span>);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;header</span> <span class="attr">className</span>=<span class="str">"site-header"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"header-container"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;Link</span> <span class="attr">to</span>=<span class="str">"/"</span> <span class="attr">className</span>=<span class="str">"brand-logo"</span><span class="tag">&gt;</span>VASTRIKA<span class="tag">&lt;/Link&gt;</span>
+        <span class="tag">&lt;nav</span> <span class="attr">className</span>=<span class="str">"nav-menu"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;NavLink</span> <span class="attr">to</span>=<span class="str">"/"</span><span class="tag">&gt;</span>Home<span class="tag">&lt;/NavLink&gt;</span>
+          <span class="tag">&lt;NavLink</span> <span class="attr">to</span>=<span class="str">"/shop"</span><span class="tag">&gt;</span>Shop<span class="tag">&lt;/NavLink&gt;</span>
+          <span class="tag">&lt;NavLink</span> <span class="attr">to</span>=<span class="str">"/about"</span><span class="tag">&gt;</span>About<span class="tag">&lt;/NavLink&gt;</span>
+          <span class="tag">&lt;NavLink</span> <span class="attr">to</span>=<span class="str">"/contact"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/NavLink&gt;</span>
+        <span class="tag">&lt;/nav&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"nav-actions"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;button</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setIsSearchOpen</span>(<span class="num">true</span>)}<span class="tag">&gt;</span>🔍<span class="tag">&lt;/button&gt;</span>
+          <span class="tag">&lt;Link</span> <span class="attr">to</span>=<span class="str">"/wishlist"</span> <span class="attr">className</span>=<span class="str">"badge-btn"</span><span class="tag">&gt;</span>❤️ <span class="tag">&lt;span&gt;</span>{wishlist.length}<span class="tag">&lt;/span&gt;&lt;/Link&gt;</span>
+          <span class="tag">&lt;button</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setIsCartOpen</span>(<span class="num">true</span>)} <span class="attr">className</span>=<span class="str">"badge-btn"</span><span class="tag">&gt;</span>🛍️ <span class="tag">&lt;span&gt;</span>{cartCount}<span class="tag">&lt;/span&gt;&lt;/button&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/header&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 8: src/components/Hero.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="8">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 08</span>
+          <h2 class="slide-heading">Hero.jsx - Festive Royal Hero Banner & CTA</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/Hero.jsx</div>
+        <span class="slide-role-tag">Homepage Hero Banner</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> High-impact visual marquee presenting the brand heritage, festive discount badges & direct CTAs.</span>
+        <span class="gujarati-expl">હોમપેજ પર સૌથી ઉપર દેખાતું આકર્ષક રોયલ બેનર અને ‘Shop Now’ બટન્સ.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Festive Marquee Hero</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #110B0C; padding: 20px;">
+              <div class="vastrika-hero-mockup">
+                <div class="hero-text-side">
+                  <span style="background: rgba(212,175,55,0.2); border: 1px solid #D4AF37; color: #FFE29F; font-size: 0.72rem; padding: 4px 10px; border-radius: 999px; font-weight: 700; text-transform: uppercase;">✨ Handcrafted Royal Weaves 2026</span>
+                  <h2>Royal Elegance Redefined For You</h2>
+                  <p>Adorn yourself in bespoke silk sarees, handcrafted bridal lehengas, and royal festive sherwanis tailored with pure zari craftsmanship.</p>
+                  <div class="hero-btn-row">
+                    <button class="hero-btn-gold">Explore Festive Collection ➔</button>
+                    <button class="hero-btn-outline">Watch Heritage Story</button>
+                  </div>
+                </div>
+                <div class="hero-card-preview">
+                  <div style="font-size: 1.8rem; margin-bottom: 6px;">👑</div>
+                  <div style="font-family: 'Cinzel'; font-size: 0.95rem; font-weight: 700; color: #FFE29F;">100% Authentic</div>
+                  <div style="font-size: 0.75rem; color: #E8DFD3; margin-top: 4px;">Certified Master Weavers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/Hero.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/Hero.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Hero Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { Link } <span class="kw">from</span> <span class="str">'react-router-dom'</span>;
+
+<span class="kw">function</span> <span class="fn">Hero</span>() {
+  <span class="kw">return</span> (
+    <span class="tag">&lt;section</span> <span class="attr">className</span>=<span class="str">"hero-banner"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"hero-content"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;span</span> <span class="attr">className</span>=<span class="str">"badge-pill"</span><span class="tag">&gt;</span>✨ Handcrafted Royal Weaves 2026<span class="tag">&lt;/span&gt;</span>
+        <span class="tag">&lt;h1</span> <span class="attr">className</span>=<span class="str">"hero-title"</span><span class="tag">&gt;</span>Royal Elegance Redefined For You<span class="tag">&lt;/h1&gt;</span>
+        <span class="tag">&lt;p</span> <span class="attr">className</span>=<span class="str">"hero-subtitle"</span><span class="tag">&gt;</span>
+          Adorn yourself in bespoke silk sarees, handcrafted bridal lehengas, and royal festive sherwanis.
+        <span class="tag">&lt;/p&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"hero-cta-group"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;Link</span> <span class="attr">to</span>=<span class="str">"/shop"</span> <span class="attr">className</span>=<span class="str">"btn-primary"</span><span class="tag">&gt;</span>Explore Festive Collection<span class="tag">&lt;/Link&gt;</span>
+          <span class="tag">&lt;Link</span> <span class="attr">to</span>=<span class="str">"/about"</span> <span class="attr">className</span>=<span class="str">"btn-outline"</span><span class="tag">&gt;</span>Our Heritage<span class="tag">&lt;/Link&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/section&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 9: src/components/OfferBanner.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="9">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 09</span>
+          <h2 class="slide-heading">OfferBanner.jsx - Countdown Timer & Coupon Bar</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/OfferBanner.jsx</div>
+        <span class="slide-role-tag">Urgency & Promo Ticker</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Dynamic countdown ticker (`04h : 18m : 42s`) with one-click copyable coupon code.</span>
+        <span class="gujarati-expl">લાઈવ રન થતો કાઉન્ટડાઉન ટાઈમર અને ડિસ્કાઉન્ટ કુપન કોડ બાર.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Live Countdown Bar</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: linear-gradient(90deg, #6B1724 0%, #4A0E18 100%); color: #FFF; padding: 14px 20px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 1.2rem;">⚡</span>
+                  <span style="font-weight: 700; color: #FFE29F;">FESTIVE SPARKLE SALE:</span>
+                  <span style="font-size: 0.9rem;">Flat 20% Off on orders above ₹2,999!</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span style="font-family: 'Fira Code'; background: rgba(0,0,0,0.4); border: 1px solid #D4AF37; color: #FFE29F; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem;">Ends In: 04h : 18m : 42s</span>
+                  <span style="background: #D4AF37; color: #120B0B; font-weight: 800; font-size: 0.78rem; padding: 5px 12px; border-radius: 6px; cursor: pointer;">CODE: VASTRIKA20 (Copy)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/OfferBanner.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/OfferBanner.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Countdown Timer State</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useState, useEffect } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+
+<span class="kw">function</span> <span class="fn">OfferBanner</span>() {
+  <span class="kw">const</span> [timeLeft, setTimeLeft] = <span class="hook">useState</span>({ hours: <span class="num">4</span>, minutes: <span class="num">18</span>, seconds: <span class="num">42</span> });
+  <span class="kw">const</span> { addToast } = <span class="fn">useCart</span>();
+
+  <span class="fn">useEffect</span>(() =&gt; {
+    <span class="kw">const</span> timer = <span class="fn">setInterval</span>(() =&gt; {
+      <span class="fn">setTimeLeft</span>(prev =&gt; {
+        <span class="kw">if</span> (prev.seconds &gt; <span class="num">0</span>) <span class="kw">return</span> { ...prev, seconds: prev.seconds - <span class="num">1</span> };
+        <span class="kw">if</span> (prev.minutes &gt; <span class="num">0</span>) <span class="kw">return</span> { ...prev, minutes: prev.minutes - <span class="num">1</span>, seconds: <span class="num">59</span> };
+        <span class="kw">return</span> { hours: prev.hours - <span class="num">1</span>, minutes: <span class="num">59</span>, seconds: <span class="num">59</span> };
+      });
+    }, <span class="num">1000</span>);
+    <span class="kw">return</span> () =&gt; <span class="fn">clearInterval</span>(timer);
+  }, []);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"offer-banner"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;span&gt;</span>⚡ FESTIVE SPARKLE SALE: Flat 20% Off<span class="tag">&lt;/span&gt;</span>
+      <span class="tag">&lt;span</span> <span class="attr">className</span>=<span class="str">"timer"</span><span class="tag">&gt;</span>{timeLeft.hours}h : {timeLeft.minutes}m : {timeLeft.seconds}s<span class="tag">&lt;/span&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">onClick</span>={() =&gt; { navigator.clipboard.<span class="fn">writeText</span>(<span class="str">'VASTRIKA20'</span>); <span class="fn">addToast</span>(<span class="str">'Coupon Copied!'</span>); }}<span class="tag">&gt;</span>
+        Use Code: VASTRIKA20
+      <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 10: src/components/ProductCard.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="10">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 10</span>
+          <h2 class="slide-heading">ProductCard.jsx - Interactive Product Item Card</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/ProductCard.jsx</div>
+        <span class="slide-role-tag">Core Item Component</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> High-conversion card with image hover zoom, instant wishlist toggle, quick view trigger and cart action.</span>
+        <span class="gujarati-expl">દરેક પ્રોડક્ટ માટેનું કાર્ડ જેમાં ઈમેજ, કિંમત, રેટિંગ, Wishlist અને Add to Cart બટન છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Product Card Grid Rendering</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FAF6EE; padding: 20px;">
+              <div class="product-cards-mockup-row">
+                <!-- Card 1 -->
+                <div class="card-mockup-item">
+                  <div class="card-img-placeholder">
+                    <span class="card-tag-badge">Bestseller</span>
+                    <button class="card-wishlist-btn">❤️</button>
+                    <span>Lehenga Velvet</span>
+                  </div>
+                  <div class="card-body-mock">
+                    <div class="card-cat-name">Lehengas</div>
+                    <div class="card-item-title">Crimson Bridal Lehenga</div>
+                    <div class="card-price-row">
+                      <span class="price-curr">₹19,999</span>
+                      <span class="price-orig">₹24,999</span>
+                      <span style="font-size: 0.75rem; color: #27C93F; font-weight: 700;">(20% Off)</span>
+                    </div>
+                    <button class="card-btn-add">🛍️ Add to Bag</button>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-mockup-item">
+                  <div class="card-img-placeholder" style="background: linear-gradient(135deg, #A47E24 0%, #D4AF37 100%);">
+                    <span class="card-tag-badge" style="background: #6B1724; color: #FFF;">Royal Pure Silk</span>
+                    <button class="card-wishlist-btn">🤍</button>
+                    <span style="color: #120A0A;">Kanjivaram Saree</span>
+                  </div>
+                  <div class="card-body-mock">
+                    <div class="card-cat-name">Sarees</div>
+                    <div class="card-item-title">Gold Kanjivaram Silk Saree</div>
+                    <div class="card-price-row">
+                      <span class="price-curr">₹12,499</span>
+                      <span class="price-orig">₹15,999</span>
+                      <span style="font-size: 0.75rem; color: #27C93F; font-weight: 700;">(22% Off)</span>
+                    </div>
+                    <button class="card-btn-add">🛍️ Add to Bag</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/ProductCard.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/ProductCard.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Card Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useNavigate } <span class="kw">from</span> <span class="str">'react-router-dom'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+
+<span class="kw">function</span> <span class="fn">ProductCard</span>({ product }) {
+  <span class="kw">const</span> navigate = <span class="fn">useNavigate</span>();
+  <span class="kw">const</span> { addToCart, wishlist, toggleWishlist, setQuickViewProduct } = <span class="fn">useCart</span>();
+  <span class="kw">const</span> isWishlisted = wishlist.<span class="fn">some</span>(item =&gt; item.id === product.id);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"product-card"</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">navigate</span>(<span class="str">`/product/${product.id}`</span>)}<span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"image-container"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;img</span> <span class="attr">src</span>={product.image} <span class="attr">alt</span>={product.name} <span class="attr">loading</span>=<span class="str">"lazy"</span> <span class="tag">/&gt;</span>
+        {product.tag && <span class="tag">&lt;span</span> <span class="attr">className</span>=<span class="str">"badge-tag"</span><span class="tag">&gt;</span>{product.tag}<span class="tag">&lt;/span&gt;</span>}
+        <span class="tag">&lt;button</span> <span class="attr">className</span>=<span class="str">"wishlist-btn"</span> <span class="attr">onClick</span>={(e) =&gt; { e.<span class="fn">stopPropagation</span>(); <span class="fn">toggleWishlist</span>(product); }}<span class="tag">&gt;</span>
+          {isWishlisted ? <span class="str">'❤️'</span> : <span class="str">'🤍'</span>}
+        <span class="tag">&lt;/button&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">className</span>=<span class="str">"quick-view-btn"</span> <span class="attr">onClick</span>={(e) =&gt; { e.<span class="fn">stopPropagation</span>(); <span class="fn">setQuickViewProduct</span>(product); }}<span class="tag">&gt;</span>
+          👁 Quick View
+        <span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"product-info"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h3&gt;</span>{product.name}<span class="tag">&lt;/h3&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"price-box"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;span</span> <span class="attr">className</span>=<span class="str">"price"</span><span class="tag">&gt;</span>₹{product.price.<span class="fn">toLocaleString</span>()}<span class="tag">&lt;/span&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">className</span>=<span class="str">"btn-add-cart"</span> <span class="attr">onClick</span>={(e) =&gt; { e.<span class="fn">stopPropagation</span>(); <span class="fn">addToCart</span>(product); }}<span class="tag">&gt;</span>
+          Add To Cart
+        <span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 11: src/components/CartDrawer.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="11">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 11</span>
+          <h2 class="slide-heading">CartDrawer.jsx - Slide-Over Side Shopping Bag</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/CartDrawer.jsx</div>
+        <span class="slide-role-tag">Slide-In Drawer Component</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Instant side-drawer allowing cart item quantity adjustments, live subtotal computation & direct checkout.</span>
+        <span class="gujarati-expl">જમણી બાજુથી સ્લાઇડ થતું કાર્ટ ડ્રોઅર જેમાં કિંમત અને ફ્રી શિપિંગ પ્રોગ્રેસ બાર દેખાય છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Slide-Over Cart Preview</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: rgba(0,0,0,0.6); padding: 20px;">
+              <div class="drawer-preview-mockup">
+                <div class="drawer-header-mock">
+                  <span>🛍️ Royal Shopping Bag (2 Items)</span>
+                  <span style="cursor: pointer; color: #888;">✕ Close</span>
+                </div>
+                <!-- Progress for Free Shipping -->
+                <div style="background: #FAF6EE; border: 1px solid #E8DFD3; padding: 8px 12px; border-radius: 6px; font-size: 0.75rem; color: #6B1724; font-weight: 700; margin-bottom: 10px;">
+                  🚚 You've Unlocked Free Express Shipping!
+                </div>
+                <!-- Item 1 -->
+                <div class="drawer-item-row">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.85rem; color: #201715;">Crimson Bridal Lehenga</div>
+                    <div style="font-size: 0.75rem; color: #9D7B37;">Size: M • Qty: 1</div>
+                  </div>
+                  <div style="font-weight: 800; color: #6B1724;">₹19,999</div>
+                </div>
+                <!-- Item 2 -->
+                <div class="drawer-item-row">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.85rem; color: #201715;">Gold Kanjivaram Silk Saree</div>
+                    <div style="font-size: 0.75rem; color: #9D7B37;">Size: Free • Qty: 1</div>
+                  </div>
+                  <div style="font-weight: 800; color: #6B1724;">₹12,499</div>
+                </div>
+                <div class="drawer-total-box">
+                  <span>Subtotal:</span>
+                  <span style="color: #6B1724;">₹32,498.00</span>
+                </div>
+                <button style="width: 100%; background: #6B1724; color: #FFF; padding: 10px; border-radius: 6px; border: none; font-weight: 700; margin-top: 10px; cursor: pointer;">
+                  Proceed To Checkout ➔
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/CartDrawer.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/CartDrawer.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Drawer Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+<span class="kw">import</span> CartItem <span class="kw">from</span> <span class="str">'./CartItem'</span>;
+
+<span class="kw">function</span> <span class="fn">CartDrawer</span>() {
+  <span class="kw">const</span> { isCartOpen, setIsCartOpen, cart, cartSubtotal, setIsCheckoutOpen } = <span class="fn">useCart</span>();
+  <span class="kw">if</span> (!isCartOpen) <span class="kw">return</span> <span class="num">null</span>;
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"drawer-backdrop"</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setIsCartOpen</span>(<span class="num">false</span>)}<span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"drawer-panel"</span> <span class="attr">onClick</span>={e =&gt; e.<span class="fn">stopPropagation</span>()}<span class="tag">&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"drawer-header"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;h3&gt;</span>Royal Shopping Bag ({cart.length})<span class="tag">&lt;/h3&gt;</span>
+          <span class="tag">&lt;button</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setIsCartOpen</span>(<span class="num">false</span>)}<span class="tag">&gt;</span>✕<span class="tag">&lt;/button&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"drawer-items"</span><span class="tag">&gt;</span>
+          {cart.<span class="fn">map</span>(item =&gt; <span class="tag">&lt;CartItem</span> <span class="attr">key</span>={<span class="str">`${item.id}-${item.selectedSize}`</span>} <span class="attr">item</span>={item} <span class="tag">/&gt;</span>)}
+        <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"drawer-footer"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"subtotal-row"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;span&gt;</span>Subtotal:<span class="tag">&lt;/span&gt;</span>
+            <span class="tag">&lt;strong&gt;</span>₹{cartSubtotal.<span class="fn">toLocaleString</span>()}<span class="tag">&lt;/strong&gt;</span>
+          <span class="tag">&lt;/div&gt;</span>
+          <span class="tag">&lt;button</span> <span class="attr">className</span>=<span class="str">"btn-checkout"</span> <span class="attr">onClick</span>={() =&gt; { <span class="fn">setIsCartOpen</span>(<span class="num">false</span>); <span class="fn">setIsCheckoutOpen</span>(<span class="num">true</span>); }}<span class="tag">&gt;</span>
+            Proceed to Checkout
+          <span class="tag">&lt;/button&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 12: src/components/QuickViewModal.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="12">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 12</span>
+          <h2 class="slide-heading">QuickViewModal.jsx - Instant Product Preview Modal</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/QuickViewModal.jsx</div>
+        <span class="slide-role-tag">Modal Component</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Popup modal for instant product exploration, size selection (`S`, `M`, `L`, `XL`) & instant add-to-bag.</span>
+        <span class="gujarati-expl">પ્રોડક્ટનું ઝડપી પ્રિવ્યૂ અને સાઇઝ સિલેક્ટ કરવાનું મોડલ.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Rendered Modal View</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: rgba(18,10,12,0.85); padding: 24px;">
+              <div style="background: #FFFFFF; border-radius: 12px; max-width: 540px; margin: 0 auto; overflow: hidden; display: flex; border: 1px solid #D4AF37;">
+                <div style="width: 40%; background: linear-gradient(135deg, #4A101A, #6B1724); display: flex; align-items: center; justify-content: center; color: #FFE29F; font-family: 'Cinzel'; font-weight: 700;">
+                  Lehenga Preview
+                </div>
+                <div style="padding: 16px; width: 60%;">
+                  <div style="font-size: 0.72rem; color: #9D7B37; font-weight: 800;">BRIDAL COLLECTION</div>
+                  <div style="font-size: 1rem; font-weight: 700; color: #201715; margin: 2px 0 6px;">Crimson Velvet Bridal Lehenga</div>
+                  <div style="font-size: 1.1rem; font-weight: 800; color: #6B1724; margin-bottom: 8px;">₹19,999</div>
+                  <div style="font-size: 0.75rem; color: #666; margin-bottom: 6px;">Select Size:</div>
+                  <div style="display: flex; gap: 6px; margin-bottom: 12px;">
+                    <span style="border: 1px solid #CCC; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem;">S</span>
+                    <span style="border: 1px solid #6B1724; background: #6B1724; color: #FFF; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">M</span>
+                    <span style="border: 1px solid #CCC; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem;">L</span>
+                    <span style="border: 1px solid #CCC; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem;">XL</span>
+                  </div>
+                  <button style="width: 100%; background: #6B1724; color: #FFF; border: none; padding: 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">
+                    Add to Shopping Bag
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/QuickViewModal.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/QuickViewModal.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Modal Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useState } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+
+<span class="kw">function</span> <span class="fn">QuickViewModal</span>() {
+  <span class="kw">const</span> { quickViewProduct, setQuickViewProduct, addToCart } = <span class="fn">useCart</span>();
+  <span class="kw">const</span> [selectedSize, setSelectedSize] = <span class="hook">useState</span>(<span class="str">'M'</span>);
+  <span class="kw">if</span> (!quickViewProduct) <span class="kw">return</span> <span class="num">null</span>;
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"modal-overlay"</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setQuickViewProduct</span>(<span class="num">null</span>)}<span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"modal-card"</span> <span class="attr">onClick</span>={e =&gt; e.<span class="fn">stopPropagation</span>()}<span class="tag">&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">className</span>=<span class="str">"close-btn"</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setQuickViewProduct</span>(<span class="num">null</span>)}<span class="tag">&gt;</span>✕<span class="tag">&lt;/button&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"modal-grid"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;img</span> <span class="attr">src</span>={quickViewProduct.image} <span class="attr">alt</span>={quickViewProduct.name} <span class="tag">/&gt;</span>
+          <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"modal-details"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;h2&gt;</span>{quickViewProduct.name}<span class="tag">&lt;/h2&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"price"</span><span class="tag">&gt;</span>₹{quickViewProduct.price.<span class="fn">toLocaleString</span>()}<span class="tag">&lt;/div&gt;</span>
+            <span class="tag">&lt;button</span> <span class="attr">onClick</span>={() =&gt; { <span class="fn">addToCart</span>(quickViewProduct, selectedSize); <span class="fn">setQuickViewProduct</span>(<span class="num">null</span>); }}<span class="tag">&gt;</span>
+              Add To Bag
+            <span class="tag">&lt;/button&gt;</span>
+          <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 13: src/components/CheckoutModal.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="13">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 13</span>
+          <h2 class="slide-heading">CheckoutModal.jsx - 3-Step Seamless Royal Checkout</h2>
+        </div>
+        <div class="file-path-badge">📁 src/components/CheckoutModal.jsx</div>
+        <span class="slide-role-tag">Multi-Step Checkout Flow</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> 3-Step Checkout Wizard (Shipping Address ➔ Payment Selection ➔ Order Confirmation ID generation).</span>
+        <span class="gujarati-expl">ઓર્ડર કરવા માટેનું ૩-સ્ટેપ ચેકઆઉટ મોડલ (સરનામું, પેમેન્ટ મોડ, અને ઓર્ડર કન્ફર્મેશન).</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Step-by-Step Checkout Wizard</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FAF6EE; padding: 20px;">
+              <div style="background: #FFFFFF; border: 1px solid #E8DFD3; border-radius: 10px; padding: 16px; max-width: 520px; margin: 0 auto;">
+                <!-- Step Indicator -->
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #EAE1D3; padding-bottom: 10px; margin-bottom: 14px;">
+                  <span style="color: #6B1724; font-weight: 700; font-size: 0.82rem;">1. Address ✓</span>
+                  <span style="color: #D4AF37; font-weight: 800; font-size: 0.82rem; border-bottom: 2px solid #D4AF37;">2. Payment Method</span>
+                  <span style="color: #999; font-weight: 600; font-size: 0.82rem;">3. Confirm</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+                  <div style="border: 1px solid #6B1724; background: #FFF5F7; padding: 10px; border-radius: 6px; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 700; font-size: 0.85rem; color: #6B1724;">⚡ UPI (Google Pay / PhonePe / Paytm)</span>
+                    <span style="color: #6B1724; font-weight: 800;">● Selected</span>
+                  </div>
+                  <div style="border: 1px solid #DDD; padding: 10px; border-radius: 6px; font-size: 0.85rem; color: #555;">
+                    💳 Credit / Debit Card (Visa / Mastercard)
+                  </div>
+                  <div style="border: 1px solid #DDD; padding: 10px; border-radius: 6px; font-size: 0.85rem; color: #555;">
+                    📦 Cash on Delivery (COD)
+                  </div>
+                </div>
+                <button style="width: 100%; background: #6B1724; color: #FFF; padding: 10px; border-radius: 6px; font-weight: 700; border: none;">
+                  Confirm & Place Royal Order (₹19,999) ➔
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/components/CheckoutModal.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/components/CheckoutModal.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Checkout Wizard</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useState } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+
+<span class="kw">function</span> <span class="fn">CheckoutModal</span>() {
+  <span class="kw">const</span> { isCheckoutOpen, setIsCheckoutOpen, cart, clearCart, addToast } = <span class="fn">useCart</span>();
+  <span class="kw">const</span> [step, setStep] = <span class="hook">useState</span>(<span class="num">1</span>);
+  <span class="kw">const</span> [paymentMethod, setPaymentMethod] = <span class="hook">useState</span>(<span class="str">'upi'</span>);
+
+  <span class="kw">if</span> (!isCheckoutOpen) <span class="kw">return</span> <span class="num">null</span>;
+
+  <span class="kw">const</span> <span class="fn">handlePlaceOrder</span> = () =&gt; {
+    <span class="kw">const</span> orderId = <span class="str">'VST-'</span> + Math.<span class="fn">floor</span>(<span class="num">100000</span> + Math.<span class="fn">random</span>() * <span class="num">900000</span>);
+    <span class="fn">setStep</span>(<span class="num">3</span>);
+    <span class="fn">clearCart</span>();
+    <span class="fn">addToast</span>(<span class="str">`Order placed successfully! Order ID: ${orderId}`</span>, <span class="str">'success'</span>);
+  };
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"modal-backdrop"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"checkout-card"</span><span class="tag">&gt;</span>
+        <span class="cm">{/* Render Steps: 1: Address, 2: Payment, 3: Success Confirmation */}</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 14: src/pages/Home.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="14">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 14</span>
+          <h2 class="slide-heading">Home.jsx - Festive Homepage Landing Experience</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/Home.jsx</div>
+        <span class="slide-role-tag">Main Landing Route</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Assembles Hero, OfferBanner, CategorySection, Featured ProductGrid, Trust Badges & Newsletter.</span>
+        <span class="gujarati-expl">હોમપેજ કમ્પોનન્ટ જે બધા મહત્વના સેક્શન્સને એકસાથે જોડીને અદભુત અનુભવ આપે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Homepage Full Assembly</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 14px;">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="background: #2D1418; color: #FFE29F; padding: 12px; border-radius: 6px; font-weight: 700;">&lt;Hero /&gt; - Royal Banner & CTA</div>
+                <div style="background: #6B1724; color: #FFF; padding: 8px 12px; border-radius: 6px; font-size: 0.8rem;">&lt;OfferBanner /&gt; - Countdown Timer Bar</div>
+                <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 12px; border-radius: 6px; font-size: 0.85rem; color: #201715; font-weight: 700;">&lt;CategorySection /&gt; - 4 Curated Categories</div>
+                <div style="background: #FFFFFF; border: 1px solid #E8DFD3; padding: 14px; border-radius: 6px; font-size: 0.85rem; color: #201715; font-weight: 700;">&lt;ProductGrid /&gt; - Trending Royal Outfits</div>
+                <div style="background: #190E0C; color: #FFE29F; padding: 10px; border-radius: 6px; font-size: 0.8rem;">&lt;Newsletter /&gt; - VIP Royal Club Signup</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/Home.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/Home.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Page Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> Hero <span class="kw">from</span> <span class="str">'../components/Hero'</span>;
+<span class="kw">import</span> OfferBanner <span class="kw">from</span> <span class="str">'../components/OfferBanner'</span>;
+<span class="kw">import</span> CategorySection <span class="kw">from</span> <span class="str">'../components/CategorySection'</span>;
+<span class="kw">import</span> ProductGrid <span class="kw">from</span> <span class="str">'../components/ProductGrid'</span>;
+<span class="kw">import</span> Newsletter <span class="kw">from</span> <span class="str">'../components/Newsletter'</span>;
+<span class="kw">import</span> { PRODUCTS } <span class="kw">from</span> <span class="str">'../data/products'</span>;
+
+<span class="kw">function</span> <span class="fn">Home</span>() {
+  <span class="kw">const</span> featuredProducts = PRODUCTS.<span class="fn">slice</span>(<span class="num">0</span>, <span class="num">8</span>);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"home-page"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;Hero /&gt;</span>
+      <span class="tag">&lt;OfferBanner /&gt;</span>
+      <span class="tag">&lt;CategorySection /&gt;</span>
+      <span class="tag">&lt;section</span> <span class="attr">className</span>=<span class="str">"featured-section"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h2</span> <span class="attr">className</span>=<span class="str">"section-heading"</span><span class="tag">&gt;</span>Curated Royal Arrivals<span class="tag">&lt;/h2&gt;</span>
+        <span class="tag">&lt;ProductGrid</span> <span class="attr">products</span>={featuredProducts} <span class="tag">/&gt;</span>
+      <span class="tag">&lt;/section&gt;</span>
+      <span class="tag">&lt;Newsletter /&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 15: src/pages/Shop.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="15">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 15</span>
+          <h2 class="slide-heading">Shop.jsx - Complete Catalog & Multi-Filter Engine</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/Shop.jsx</div>
+        <span class="slide-role-tag">Catalog & Filter Page</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Comprehensive shop catalog with Category filter pills, Price slider, Sorting (Low to High, High to Low) & Search.</span>
+        <span class="gujarati-expl">શોપ પેજ જેમાં કેટેગરી, પ્રાઇસ ફિલ્ટર અને સોર્ટિંગ સાથે બધી પ્રોડક્ટ્સ લિસ્ટ થાય છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Shop Page Filter Bar & Grid</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; background: #FAF6EE; padding: 10px; border-radius: 8px; border: 1px solid #E8DFD3;">
+                <div style="display: flex; gap: 8px;">
+                  <span style="background: #6B1724; color: #FFF; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; font-weight: 700;">All (16)</span>
+                  <span style="background: #FFF; border: 1px solid #CCC; color: #333; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;">Sarees</span>
+                  <span style="background: #FFF; border: 1px solid #CCC; color: #333; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;">Lehengas</span>
+                  <span style="background: #FFF; border: 1px solid #CCC; color: #333; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;">Sherwanis</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #6B625C;">Sort: <strong style="color: #6B1724;">Price: Low to High ▾</strong></div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                <div style="background: #FFF; border: 1px solid #E8DFD3; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #201715;">Silk Saree</div>
+                  <div style="color: #6B1724; font-weight: 800; font-size: 0.85rem;">₹7,499</div>
+                </div>
+                <div style="background: #FFF; border: 1px solid #E8DFD3; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #201715;">Bridal Lehenga</div>
+                  <div style="color: #6B1724; font-weight: 800; font-size: 0.85rem;">₹19,999</div>
+                </div>
+                <div style="background: #FFF; border: 1px solid #E8DFD3; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #201715;">Royal Sherwani</div>
+                  <div style="color: #6B1724; font-weight: 800; font-size: 0.85rem;">₹14,999</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/Shop.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/Shop.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Filtering & Sorting Logic</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useState, useMemo } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { PRODUCTS } <span class="kw">from</span> <span class="str">'../data/products'</span>;
+<span class="kw">import</span> ProductGrid <span class="kw">from</span> <span class="str">'../components/ProductGrid'</span>;
+<span class="kw">import</span> FilterBar <span class="kw">from</span> <span class="str">'../components/FilterBar'</span>;
+
+<span class="kw">function</span> <span class="fn">Shop</span>() {
+  <span class="kw">const</span> [category, setCategory] = <span class="hook">useState</span>(<span class="str">'all'</span>);
+  <span class="kw">const</span> [sortBy, setSortBy] = <span class="hook">useState</span>(<span class="str">'featured'</span>);
+
+  <span class="kw">const</span> filteredProducts = <span class="fn">useMemo</span>(() =&gt; {
+    <span class="kw">return</span> PRODUCTS
+      .<span class="fn">filter</span>(p =&gt; category === <span class="str">'all'</span> || p.category === category)
+      .<span class="fn">sort</span>((a, b) =&gt; {
+        <span class="kw">if</span> (sortBy === <span class="str">'price-low'</span>) <span class="kw">return</span> a.price - b.price;
+        <span class="kw">if</span> (sortBy === <span class="str">'price-high'</span>) <span class="kw">return</span> b.price - a.price;
+        <span class="kw">return</span> b.rating - a.rating;
+      });
+  }, [category, sortBy]);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"shop-container"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;FilterBar</span> <span class="attr">category</span>={category} <span class="attr">setCategory</span>={setCategory} <span class="attr">sortBy</span>={sortBy} <span class="attr">setSortBy</span>={setSortBy} <span class="tag">/&gt;</span>
+      <span class="tag">&lt;ProductGrid</span> <span class="attr">products</span>={filteredProducts} <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 16: src/pages/ProductPage.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="16">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 16</span>
+          <h2 class="slide-heading">ProductPage.jsx - Dynamic Single Product Route View</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/ProductPage.jsx</div>
+        <span class="slide-role-tag">Dynamic Route (`/product/:id`)</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Extracts `:id` via `useParams`, fetches full product metadata, fabric specs, and shows related recommendations.</span>
+        <span class="gujarati-expl">પ્રોડક્ટનું ડીટેઈલ પેજ જેમાં ફોટો ગેલેરી, ફેબ્રિક સ્પેસિફિકેશન અને સિમિલર પ્રોડક્ટ્સ આવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Product Details Full View</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 18px;">
+              <div style="display: flex; gap: 20px;">
+                <div style="width: 35%; height: 160px; background: linear-gradient(135deg, #4A101A, #6B1724); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #FFE29F; font-family: 'Cinzel';">
+                  High-Res Zoom Photo
+                </div>
+                <div style="width: 65%;">
+                  <span style="background: #FAF6EE; border: 1px solid #D4AF37; color: #9D7B37; font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 700;">PREMIUM SILK COLLECTION</span>
+                  <div style="font-family: 'Cinzel'; font-size: 1.15rem; font-weight: 800; color: #201715; margin: 4px 0;">Gold Brocade Royal Sherwani</div>
+                  <div style="font-size: 1.1rem; color: #6B1724; font-weight: 800; margin-bottom: 8px;">₹14,999 <span style="font-size: 0.8rem; color: #888; text-decoration: line-through;">₹18,999</span></div>
+                  <div style="font-size: 0.78rem; color: #555; margin-bottom: 12px;"><strong>Fabric:</strong> Pure Silk Brocade with Handcrafted Zari Embroidery • Dry Clean Only</div>
+                  <div style="display: flex; gap: 10px;">
+                    <button style="background: #6B1724; color: #FFF; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 700;">Add to Cart 🛍️</button>
+                    <button style="background: #FFF; border: 1px solid #6B1724; color: #6B1724; padding: 8px 16px; border-radius: 6px; font-weight: 700;">Wishlist ❤️</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/ProductPage.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/ProductPage.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Dynamic Route Handler</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useParams } <span class="kw">from</span> <span class="str">'react-router-dom'</span>;
+<span class="kw">import</span> { PRODUCTS } <span class="kw">from</span> <span class="str">'../data/products'</span>;
+<span class="kw">import</span> ProductDetails <span class="kw">from</span> <span class="str">'../components/ProductDetails'</span>;
+<span class="kw">import</span> ProductGrid <span class="kw">from</span> <span class="str">'../components/ProductGrid'</span>;
+
+<span class="kw">function</span> <span class="fn">ProductPage</span>() {
+  <span class="kw">const</span> { id } = <span class="fn">useParams</span>();
+  <span class="kw">const</span> product = PRODUCTS.<span class="fn">find</span>(p =&gt; p.id === parseInt(id));
+  <span class="kw">if</span> (!product) <span class="kw">return</span> <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"not-found"</span><span class="tag">&gt;</span>Product Not Found<span class="tag">&lt;/div&gt;</span>;
+
+  <span class="kw">const</span> related = PRODUCTS.<span class="fn">filter</span>(p =&gt; p.category === product.category && p.id !== product.id).<span class="fn">slice</span>(<span class="num">0</span>, <span class="num">4</span>);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"product-page-wrap"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;ProductDetails</span> <span class="attr">product</span>={product} <span class="tag">/&gt;</span>
+      <span class="tag">&lt;h3</span> <span class="attr">className</span>=<span class="str">"related-title"</span><span class="tag">&gt;</span>You May Also Like<span class="tag">&lt;/h3&gt;</span>
+      <span class="tag">&lt;ProductGrid</span> <span class="attr">products</span>={related} <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 17: src/pages/Cart.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="17">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 17</span>
+          <h2 class="slide-heading">Cart.jsx - Full Shopping Bag & Billing Page</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/Cart.jsx</div>
+        <span class="slide-role-tag">Cart Page View</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Comprehensive shopping bag review, coupon application (`VASTRIKA20`), order breakdown & free delivery tracker.</span>
+        <span class="gujarati-expl">સંપૂર્ણ શોપિંગ કાર્ટ પેજ જેમાં ડીસ્કાઉન્ટ કુપન નાખવાની અને બિલિંગની સુવિધા છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Shopping Bag & Summary Layout</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 18px;">
+              <div style="display: flex; gap: 20px;">
+                <!-- Cart list left -->
+                <div style="flex: 2; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="background: #FFF; border: 1px solid #E8DFD3; padding: 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <div style="font-weight: 700; color: #201715;">Crimson Bridal Lehenga (Size: M)</div>
+                      <div style="color: #6B1724; font-weight: 800;">₹19,999</div>
+                    </div>
+                    <div>Qty: <strong>1</strong></div>
+                  </div>
+                </div>
+                <!-- Summary right -->
+                <div style="flex: 1; background: #FAF6EE; border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-family: 'Cinzel'; font-weight: 700; color: #6B1724; margin-bottom: 10px;">Order Summary</div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;"><span>Subtotal:</span><strong>₹19,999</strong></div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #27C93F; margin-bottom: 4px;"><span>Promo (20%):</span><strong>-₹3,999</strong></div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;"><span>Shipping:</span><strong style="color: #27C93F;">FREE</strong></div>
+                  <div style="border-top: 1px solid #D4AF37; padding-top: 8px; display: flex; justify-content: space-between; font-weight: 800; color: #6B1724;">
+                    <span>Total:</span>
+                    <span>₹16,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/Cart.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/Cart.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Cart & Billing</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useState } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+<span class="kw">import</span> CartItem <span class="kw">from</span> <span class="str">'../components/CartItem'</span>;
+
+<span class="kw">function</span> <span class="fn">Cart</span>() {
+  <span class="kw">const</span> { cart, cartSubtotal, applyPromoCode, appliedPromo, setIsCheckoutOpen } = <span class="fn">useCart</span>();
+  <span class="kw">const</span> [promoInput, setPromoInput] = <span class="hook">useState</span>(<span class="str">''</span>);
+
+  <span class="kw">const</span> discount = appliedPromo ? (cartSubtotal * appliedPromo.discount) / <span class="num">100</span> : <span class="num">0</span>;
+  <span class="kw">const</span> finalTotal = cartSubtotal - discount;
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"cart-page"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"cart-items-column"</span><span class="tag">&gt;</span>
+        {cart.<span class="fn">map</span>(item =&gt; <span class="tag">&lt;CartItem</span> <span class="attr">key</span>={<span class="str">`${item.id}-${item.selectedSize}`</span>} <span class="attr">item</span>={item} <span class="tag">/&gt;</span>)}
+      <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"order-summary-box"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h3&gt;</span>Order Summary<span class="tag">&lt;/h3&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"promo-input-row"</span><span class="tag">&gt;</span>
+          <span class="tag">&lt;input</span> <span class="attr">value</span>={promoInput} <span class="attr">onChange</span>={e =&gt; <span class="fn">setPromoInput</span>(e.target.value)} <span class="attr">placeholder</span>=<span class="str">"Promo Code"</span> <span class="tag">/&gt;</span>
+          <span class="tag">&lt;button</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">applyPromoCode</span>(promoInput)}<span class="tag">&gt;</span>Apply<span class="tag">&lt;/button&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">className</span>=<span class="str">"btn-checkout-page"</span> <span class="attr">onClick</span>={() =&gt; <span class="fn">setIsCheckoutOpen</span>(<span class="num">true</span>)}<span class="tag">&gt;</span>
+          Checkout Now (₹{finalTotal.<span class="fn">toLocaleString</span>()})
+        <span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 18: src/pages/Wishlist.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="18">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 18</span>
+          <h2 class="slide-heading">Wishlist.jsx - Saved Luxury Favorites Showcase</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/Wishlist.jsx</div>
+        <span class="slide-role-tag">Wishlist View</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Manages user's saved wishlist items with instant move-to-cart, remove action & empty-state CTA.</span>
+        <span class="gujarati-expl">ગ્રાહકની પસંદ કરેલી (Heart કરેલી) આઈટમ્સનું લિસ્ટ અને તેને સીધા કાર્ટમાં ખસેડવાની સુવિધા.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Saved Wishlist Items</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="font-family: 'Cinzel'; font-weight: 700; color: #6B1724; font-size: 1.1rem;">My Royal Wishlist (2 Outfits)</div>
+                <button style="background: #6B1724; color: #FFF; border: none; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Move All to Bag 🛍️</button>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                <div style="background: #FFF; border: 1px solid #E8DFD3; padding: 10px; border-radius: 8px; display: flex; gap: 10px;">
+                  <div style="width: 60px; height: 60px; background: #6B1724; border-radius: 6px;"></div>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.85rem; color: #201715;">Gold Kanjivaram Saree</div>
+                    <div style="color: #6B1724; font-weight: 800; font-size: 0.85rem;">₹12,499</div>
+                    <button style="background: #FAF6EE; border: 1px solid #D4AF37; color: #6B1724; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; margin-top: 4px;">Move to Bag</button>
+                  </div>
+                </div>
+                <div style="background: #FFF; border: 1px solid #E8DFD3; padding: 10px; border-radius: 8px; display: flex; gap: 10px;">
+                  <div style="width: 60px; height: 60px; background: #9D7B37; border-radius: 6px;"></div>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.85rem; color: #201715;">Crimson Bridal Lehenga</div>
+                    <div style="color: #6B1724; font-weight: 800; font-size: 0.85rem;">₹19,999</div>
+                    <button style="background: #FAF6EE; border: 1px solid #D4AF37; color: #6B1724; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; margin-top: 4px;">Move to Bag</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/Wishlist.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/Wishlist.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Wishlist Logic</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+<span class="kw">import</span> ProductCard <span class="kw">from</span> <span class="str">'../components/ProductCard'</span>;
+
+<span class="kw">function</span> <span class="fn">Wishlist</span>() {
+  <span class="kw">const</span> { wishlist, clearWishlist } = <span class="fn">useCart</span>();
+
+  <span class="kw">if</span> (wishlist.length === <span class="num">0</span>) {
+    <span class="kw">return</span> (
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"empty-wishlist"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h2&gt;</span>Your Wishlist is Empty<span class="tag">&lt;/h2&gt;</span>
+        <span class="tag">&lt;p&gt;</span>Explore our royal ethnic collection and save your favorites!<span class="tag">&lt;/p&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    );
+  }
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"wishlist-page"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"wishlist-header"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h2&gt;</span>My Saved Wishlist ({wishlist.length})<span class="tag">&lt;/h2&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">onClick</span>={clearWishlist}<span class="tag">&gt;</span>Clear All<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"products-grid"</span><span class="tag">&gt;</span>
+        {wishlist.<span class="fn">map</span>(p =&gt; <span class="tag">&lt;ProductCard</span> <span class="attr">key</span>={p.id} <span class="attr">product</span>={p} <span class="tag">/&gt;</span>)}
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 19: src/pages/About.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="19">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 19</span>
+          <h2 class="slide-heading">About.jsx - Brand Heritage & Artisan Legacy</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/About.jsx</div>
+        <span class="slide-role-tag">Brand Story Route</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Expresses brand legacy, 150+ master handloom artisans, mission statement and luxury customer metrics.</span>
+        <span class="gujarati-expl">કંપનીની હેરિટેજ સ્ટોરી, કારીગરોની મહેનત અને બ્રાન્ડનું વિઝન દર્શાવતું પેજ.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Editorial Brand Heritage View</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 20px;">
+              <div style="text-align: center; margin-bottom: 16px;">
+                <span style="font-size: 0.75rem; color: #9D7B37; font-weight: 800; letter-spacing: 2px;">SINCE 1994</span>
+                <div style="font-family: 'Cinzel'; font-size: 1.4rem; font-weight: 800; color: #6B1724;">The Saga of Royal Handloom Craftsmanship</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center;">
+                <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px;">
+                  <div style="font-family: 'Cinzel'; font-size: 1.3rem; font-weight: 800; color: #6B1724;">50,000+</div>
+                  <div style="font-size: 0.75rem; color: #555;">Delighted Royal Patrons</div>
+                </div>
+                <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px;">
+                  <div style="font-family: 'Cinzel'; font-size: 1.3rem; font-weight: 800; color: #6B1724;">150+</div>
+                  <div style="font-size: 0.75rem; color: #555;">Master Handloom Artisans</div>
+                </div>
+                <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 12px; border-radius: 8px;">
+                  <div style="font-family: 'Cinzel'; font-size: 1.3rem; font-weight: 800; color: #6B1724;">100%</div>
+                  <div style="font-size: 0.75rem; color: #555;">Certified Silk & Zari</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/About.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/About.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Brand Page</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React <span class="kw">from</span> <span class="str">'react'</span>;
+
+<span class="kw">function</span> <span class="fn">About</span>() {
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"about-page"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"about-hero"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h1&gt;</span>The Saga of Vastrika Couture<span class="tag">&lt;/h1&gt;</span>
+        <span class="tag">&lt;p&gt;</span>Preserving the timeless heritage of Indian handloom with modern luxury silhouettes.<span class="tag">&lt;/p&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"stats-grid"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"stat-card"</span><span class="tag">&gt;&lt;h3&gt;</span>50,000+<span class="tag">&lt;/h3&gt;&lt;p&gt;</span>Happy Patrons<span class="tag">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"stat-card"</span><span class="tag">&gt;&lt;h3&gt;</span>150+<span class="tag">&lt;/h3&gt;&lt;p&gt;</span>Master Artisans<span class="tag">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"stat-card"</span><span class="tag">&gt;&lt;h3&gt;</span>100%<span class="tag">&lt;/h3&gt;&lt;p&gt;</span>Pure Silk Certified<span class="tag">&lt;/p&gt;&lt;/div&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 20: src/pages/Contact.jsx -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="20">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 20</span>
+          <h2 class="slide-heading">Contact.jsx - Customer Concierge & Interactive FAQ</h2>
+        </div>
+        <div class="file-path-badge">📁 src/pages/Contact.jsx</div>
+        <span class="slide-role-tag">Contact & FAQ Route</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Interactive message dispatch form, WhatsApp concierge support & accordion FAQ system.</span>
+        <span class="gujarati-expl">ગ્રાહક સપોર્ટ, ઇન્ક્વાયરી ફોર્મ અને પ્રશ્નોત્તરી (FAQ) માટેનું પેજ.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Contact Form & FAQ Preview</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #FDFBF7; padding: 18px;">
+              <div style="display: flex; gap: 20px;">
+                <!-- Form left -->
+                <div style="flex: 1; background: #FFF; border: 1px solid #E8DFD3; padding: 14px; border-radius: 8px;">
+                  <div style="font-family: 'Cinzel'; font-size: 0.95rem; font-weight: 700; color: #6B1724; margin-bottom: 8px;">Send Us an Inquiry</div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <input type="text" placeholder="Your Name" style="padding: 6px; border: 1px solid #CCC; border-radius: 4px; font-size: 0.8rem;" />
+                    <input type="email" placeholder="Your Email" style="padding: 6px; border: 1px solid #CCC; border-radius: 4px; font-size: 0.8rem;" />
+                    <textarea placeholder="Your Message..." rows="2" style="padding: 6px; border: 1px solid #CCC; border-radius: 4px; font-size: 0.8rem;"></textarea>
+                    <button style="background: #6B1724; color: #FFF; border: none; padding: 6px; border-radius: 4px; font-weight: 700; font-size: 0.8rem;">Send Message</button>
+                  </div>
+                </div>
+                <!-- FAQ right -->
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+                  <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 10px; border-radius: 6px;">
+                    <div style="font-weight: 700; font-size: 0.8rem; color: #6B1724;">Q: What is the delivery timeframe?</div>
+                    <div style="font-size: 0.72rem; color: #555; margin-top: 2px;">Orders are shipped via Royal Express within 2-4 business days.</div>
+                  </div>
+                  <div style="background: #FAF6EE; border: 1px solid #D4AF37; padding: 10px; border-radius: 6px;">
+                    <div style="font-weight: 700; font-size: 0.8rem; color: #6B1724;">Q: Can I request custom sizing?</div>
+                    <div style="font-size: 0.72rem; color: #555; margin-top: 2px;">Yes! Our bespoke master tailors provide customized fits upon order.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/pages/Contact.jsx)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/pages/Contact.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Form & FAQ Component</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> React, { useState } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useCart } <span class="kw">from</span> <span class="str">'../context/CartContext'</span>;
+
+<span class="kw">function</span> <span class="fn">Contact</span>() {
+  <span class="kw">const</span> { addToast } = <span class="fn">useCart</span>();
+  <span class="kw">const</span> [formData, setFormData] = <span class="hook">useState</span>({ name: <span class="str">''</span>, email: <span class="str">''</span>, message: <span class="str">''</span> });
+
+  <span class="kw">const</span> <span class="fn">handleSubmit</span> = (e) =&gt; {
+    e.<span class="fn">preventDefault</span>();
+    <span class="fn">addToast</span>(<span class="str">'Inquiry submitted! Our concierge will connect shortly.'</span>, <span class="str">'success'</span>);
+    <span class="fn">setFormData</span>({ name: <span class="str">''</span>, email: <span class="str">''</span>, message: <span class="str">''</span> });
+  };
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="attr">className</span>=<span class="str">"contact-page"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;form</span> <span class="attr">onSubmit</span>={handleSubmit}<span class="tag">&gt;</span>
+        <span class="tag">&lt;input</span> <span class="attr">value</span>={formData.name} <span class="attr">onChange</span>={e =&gt; <span class="fn">setFormData</span>({...formData, name: e.target.value})} <span class="tag">/&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span><span class="tag">&gt;</span>Send Inquiry<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/form&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 21: src/index.css -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="21">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 21</span>
+          <h2 class="slide-heading">index.css - Royal Design System & Luxury Variables</h2>
+        </div>
+        <div class="file-path-badge">📁 src/index.css</div>
+        <span class="slide-role-tag">Design Tokens & Styling</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Custom CSS variables: Royal Crimson (`#6B1724`), Gold Ochre (`#D4AF37`), Cream canvas (`#FDFBF7`) & animations.</span>
+        <span class="gujarati-expl">આખી વેબસાઈટની ડિઝાઇન સિસ્ટમ, રોયલ કલર પેલેટ અને એનિમેશન્સ CSS.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Design Tokens Color Swatches</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #190E0C; padding: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;">
+                <div style="background: #6B1724; color: #FFE29F; padding: 14px; border-radius: 8px; border: 1px solid #D4AF37;">
+                  <div style="font-weight: 800; font-size: 0.9rem;">--primary</div>
+                  <div style="font-size: 0.75rem; font-family: 'Fira Code';">#6B1724</div>
+                  <div style="font-size: 0.7rem; color: #E8DFD3;">Royal Crimson</div>
+                </div>
+                <div style="background: #D4AF37; color: #120B0B; padding: 14px; border-radius: 8px;">
+                  <div style="font-weight: 800; font-size: 0.9rem;">--gold</div>
+                  <div style="font-size: 0.75rem; font-family: 'Fira Code';">#D4AF37</div>
+                  <div style="font-size: 0.7rem;">Zari Gold</div>
+                </div>
+                <div style="background: #FDFBF7; color: #201715; padding: 14px; border-radius: 8px; border: 1px solid #E8DFD3;">
+                  <div style="font-weight: 800; font-size: 0.9rem;">--bg-body</div>
+                  <div style="font-size: 0.75rem; font-family: 'Fira Code';">#FDFBF7</div>
+                  <div style="font-size: 0.7rem; color: #666;">Warm Cream</div>
+                </div>
+                <div style="background: #190E0C; color: #FFE29F; padding: 14px; border-radius: 8px; border: 1px solid #D4AF37;">
+                  <div style="font-weight: 800; font-size: 0.9rem;">--bg-dark</div>
+                  <div style="font-size: 0.75rem; font-family: 'Fira Code';">#190E0C</div>
+                  <div style="font-size: 0.7rem; color: #C5BBAF;">Midnight Velvet</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Source Code (src/index.css)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">📄 src/index.css</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">CSS Variables & Design Tokens</span>
+            </div>
+            <pre class="code-block">:root {
+  <span class="attr">--bg-body</span>: <span class="str">#FDFBF7</span>;
+  <span class="attr">--bg-card</span>: <span class="str">#FFFFFF</span>;
+  <span class="attr">--primary</span>: <span class="str">#6B1724</span>;
+  <span class="attr">--primary-hover</span>: <span class="str">#500F19</span>;
+  <span class="attr">--primary-light</span>: <span class="str">#FCEEF0</span>;
+  <span class="attr">--gold</span>: <span class="str">#D4AF37</span>;
+  <span class="attr">--gold-dark</span>: <span class="str">#9D7B37</span>;
+  <span class="attr">--text-main</span>: <span class="str">#201715</span>;
+  <span class="attr">--text-muted</span>: <span class="str">#6B625C</span>;
+  <span class="attr">--border</span>: <span class="str">#E8DFD3</span>;
+  <span class="attr">--shadow-luxury</span>: <span class="num">0 16px 40px rgba(0, 0, 0, 0.08)</span>;
+}
+
+<span class="tag">body</span> {
+  <span class="attr">font-family</span>: <span class="str">'Plus Jakarta Sans'</span>, sans-serif;
+  <span class="attr">background-color</span>: <span class="fn">var</span>(--bg-body);
+  <span class="attr">color</span>: <span class="fn">var</span>(--text-main);
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 22: Execution & Zero-Impact Confirmation -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="22">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 22</span>
+          <h2 class="slide-heading">Execution, Deployment & Zero-Impact Guarantee</h2>
+        </div>
+        <div class="file-path-badge">📁 PROJECT SUMMARY</div>
+        <span class="slide-role-tag">Production Ready</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Instant local development running via `npm run dev` and one-click Vercel/Netlify deployment.</span>
+        <span class="gujarati-expl">આ PPT થી વેબસાઇટના કોઈ પણ કોડમાં ફેરફાર થયો નથી અને વેબસાઇટ 100% સુરક્ષિત છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">System Status & Quality Checks</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #181313; color: #FFE29F; padding: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                <div style="background: rgba(39, 201, 63, 0.15); border: 1px solid #27C93F; padding: 14px; border-radius: 8px;">
+                  <div style="color: #27C93F; font-size: 1.2rem; margin-bottom: 4px;">✓ Web App Intact</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3;">No existing code in src/ modified or altered.</div>
+                </div>
+                <div style="background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="color: #FFE29F; font-size: 1.2rem; margin-bottom: 4px;">⚡ Standalone PPT</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3;">Full slide deck with keyboard arrows & PDF export.</div>
+                </div>
+                <div style="background: rgba(86, 212, 200, 0.15); border: 1px solid #56D4C8; padding: 14px; border-radius: 8px;">
+                  <div style="color: #56D4C8; font-size: 1.2rem; margin-bottom: 4px;">🚀 100% Responsive</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3;">Optimized for Desktop, Laptops & Mobile screens.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Command Line Execution (કમાન્ડ્સ)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">🖥️ Terminal Commands</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Bash / PowerShell</span>
+            </div>
+            <pre class="code-block"><span class="cm"># 1. Start Local Vite Dev Server</span>
+npm run dev
+
+<span class="cm"># 2. Build Production Bundle</span>
+npm run build
+
+<span class="cm"># 3. Open this PPT anytime in Browser:</span>
+Double-click <span class="str">PROJECT_PPT.html</span> <span class="kw">or</span> open <span class="str">docs/PROJECT_PPT.html</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 23: Backend & Serverless Express API Architecture -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="23">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 23</span>
+          <h2 class="slide-heading">Full-Stack Backend Architecture (Node.js & Express)</h2>
+        </div>
+        <div class="file-path-badge">📁 backend/server.js & api/index.js</div>
+        <span class="slide-role-tag">REST API & Serverless Engine</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> High-performance Express.js REST API supporting local dev and seamless Vercel Serverless execution.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ સંપૂર્ણ Node.js + Express બેકએન્ડ આર્કિટેક્ચર અને API રાઉટીંગ દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Live API Endpoints & Health Check</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-window-header">
+              <div class="mockup-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="mockup-url-bar">https://vastrika-xi.vercel.app/api/health</div>
+              <div style="font-size: 0.75rem; color: #27C93F; font-weight: 700;">● Online (200 OK)</div>
+            </div>
+            <div class="mockup-content" style="background: #151110; color: #FFE29F; padding: 22px;">
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; text-align: center;">
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">🔐</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Auth Routes</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/auth (Login, Register, JWT, Profile)</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">🛍️</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Products Routes</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/products (Filter, Search, Categories)</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">📦</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Orders Routes</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/orders (Checkout, History, Tracking)</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">📊</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Admin Analytics</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/admin/dashboard (Revenue, Stats)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Server Code (એક્સપ્રેસ સર્વર કોડ)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">⚡ api/index.js (Vercel Serverless Entry)</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Express + Middleware</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> express <span class="kw">from</span> <span class="str">'express'</span>;
+<span class="kw">import</span> cors <span class="kw">from</span> <span class="str">'cors'</span>;
+<span class="kw">import</span> { connectDB } <span class="kw">from</span> <span class="str">'../backend/config/db.js'</span>;
+<span class="kw">import</span> authRoutes <span class="kw">from</span> <span class="str">'../backend/routes/authRoutes.js'</span>;
+<span class="kw">import</span> productRoutes <span class="kw">from</span> <span class="str">'../backend/routes/productRoutes.js'</span>;
+<span class="kw">import</span> orderRoutes <span class="kw">from</span> <span class="str">'../backend/routes/orderRoutes.js'</span>;
+
+<span class="kw">const</span> app = <span class="fn">express</span>();
+app.<span class="fn">use</span>(cors());
+app.<span class="fn">use</span>(express.<span class="fn">json</span>());
+
+<span class="cm">// Serverless DB Connection Middleware</span>
+app.<span class="fn">use</span>(<span class="kw">async</span> (req, res, next) =&gt; {
+  <span class="kw">await</span> <span class="fn">connectDB</span>();
+  <span class="fn">next</span>();
+});
+
+<span class="cm">// Mount API Endpoints</span>
+app.<span class="fn">use</span>(<span class="str">'/api/auth'</span>, authRoutes);
+app.<span class="fn">use</span>(<span class="str">'/api/products'</span>, productRoutes);
+app.<span class="fn">use</span>(<span class="str">'/api/orders'</span>, orderRoutes);
+
+<span class="kw">export default</span> app;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 24: Cloud MongoDB Atlas & Schemas -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="24">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 24</span>
+          <h2 class="slide-heading">Cloud MongoDB Atlas & Mongoose Schemas</h2>
+        </div>
+        <div class="file-path-badge">📁 backend/models/ (User, Product, Order, Contact)</div>
+        <span class="slide-role-tag">Cloud Database Layer</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Secure cloud data persistence on MongoDB Atlas Cluster with Mongoose ODM models.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ MongoDB Atlas કનેક્શન અને Mongoose Schemas દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">MongoDB Atlas Cloud Cluster (Cluster0)</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #111B15; color: #56D4C8; padding: 22px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; border-bottom: 1px solid rgba(86,212,200,0.3); padding-bottom: 8px;">
+                <div style="font-weight: 800; font-size: 1.1rem; color: #7EE787;">🍃 MongoDB Atlas • vastrika Database</div>
+                <div style="font-size: 0.78rem; background: rgba(39,201,63,0.2); border: 1px solid #27C93F; color: #7EE787; padding: 3px 10px; border-radius: 6px;">Connected: ReplicaSet Cluster</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">users</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">Name, Email, Bcrypt Password, Role (User/Admin), Addresses</div>
+                </div>
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">products</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">12+ Catalog Items, Images, Fabric, Price, Stock, Reviews</div>
+                </div>
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">orders</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">Order Items, Shipping Details, Payment Status, Delivery Tracking</div>
+                </div>
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">contacts</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">Customer Inquiries, Bridal Consultation Requests & Status</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Schema Model Code (મોડલ સ્કીમા)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">🍃 backend/models/User.js (Bcrypt Security Model)</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Mongoose Schema</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> mongoose <span class="kw">from</span> <span class="str">'mongoose'</span>;
+<span class="kw">import</span> bcrypt <span class="kw">from</span> <span class="str">'bcryptjs'</span>;
+
+<span class="kw">const</span> userSchema = <span class="kw">new</span> mongoose.<span class="fn">Schema</span>({
+  name: { type: String, required: <span class="kw">true</span> },
+  email: { type: String, required: <span class="kw">true</span>, unique: <span class="kw">true</span>, lowercase: <span class="kw">true</span> },
+  password: { type: String, required: <span class="kw">true</span>, select: <span class="kw">false</span> },
+  role: { type: String, enum: [<span class="str">'user'</span>, <span class="str">'admin'</span>], default: <span class="str">'user'</span> },
+  phone: { type: String, default: <span class="str">''</span> },
+  addresses: [{ street: String, city: String, state: String, pincode: String }]
+}, { timestamps: <span class="kw">true</span> });
+
+<span class="cm">// Pre-save Hook: Bcrypt Password Hashing</span>
+userSchema.<span class="fn">pre</span>(<span class="str">'save'</span>, <span class="kw">async function</span> (next) {
+  <span class="kw">if</span> (!<span class="kw">this</span>.<span class="fn">isModified</span>(<span class="str">'password'</span>)) <span class="kw">return</span> <span class="fn">next</span>();
+  <span class="kw">const</span> salt = <span class="kw">await</span> bcrypt.<span class="fn">genSalt</span>(<span class="num">10</span>);
+  <span class="kw">this</span>.password = <span class="kw">await</span> bcrypt.<span class="fn">hash</span>(<span class="kw">this</span>.password, salt);
+});</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 25: JWT Authentication & Patron Modal -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="25">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 25</span>
+          <h2 class="slide-heading">JWT Authentication & Patron Login/Register UI</h2>
+        </div>
+        <div class="file-path-badge">📁 src/context/AuthContext.jsx & src/components/AuthModal.jsx</div>
+        <span class="slide-role-tag">Security & User Session</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Auto-opening popup, standalone Register tab, Cart Guards & JWT Bearer token state management.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ યુઝર રજીસ્ટ્રેશન, લૉગિન અને કાર્ટ પ્રોટેક્શનનું ફંક્શન દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Royal Patron Auth Modal & Navbar Badge</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #17110F; color: #F9F6F0; padding: 20px;">
+              <div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
+                <div style="background: #221814; border: 1.5px solid #C5A059; border-radius: 12px; padding: 18px; max-width: 320px; text-align: center;">
+                  <div style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: #FFE29F; margin-bottom: 6px;">👑 JOIN VASTRIKA CLUB</div>
+                  <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                    <span style="flex: 1; background: transparent; border: 1px solid #5A4739; padding: 4px; border-radius: 6px; font-size: 0.75rem; color: #B3A898;">Sign In</span>
+                    <span style="flex: 1; background: linear-gradient(135deg, #C5A059, #9B783E); color: #1A1412; font-weight: 700; padding: 4px; border-radius: 6px; font-size: 0.75rem;">Register (New User)</span>
+                  </div>
+                  <div style="font-size: 0.75rem; color: #9FD9C0;">✓ Direct MongoDB Cloud Registration</div>
+                </div>
+                <div style="background: #241A16; border: 1px solid rgba(212,175,55,0.4); border-radius: 12px; padding: 16px; text-align: center;">
+                  <div style="font-size: 0.8rem; color: #FFE29F; font-weight: 700; margin-bottom: 6px;">Navbar Status Once Logged In</div>
+                  <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(197,160,89,0.2); border: 1px solid #C5A059; padding: 6px 14px; border-radius: 20px; color: #FFE29F; font-weight: 700; font-size: 0.82rem;">
+                    👤 Rani (Patron)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Auth Context Code (ઓથેન્ટિકેશન લોજિક)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">🔐 src/context/AuthContext.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">React Context API</span>
+            </div>
+            <pre class="code-block"><span class="kw">export const</span> <span class="fn">AuthProvider</span> = ({ children }) =&gt; {
+  <span class="kw">const</span> [user, setUser] = <span class="hook">useState</span>(() =&gt; JSON.<span class="fn">parse</span>(localStorage.<span class="fn">getItem</span>(<span class="str">'vastrika_user'</span>)) || <span class="kw">null</span>);
+  <span class="kw">const</span> [isAuthModalOpen, setIsAuthModalOpen] = <span class="hook">useState</span>(<span class="kw">false</span>);
+
+  <span class="kw">const</span> register = <span class="hook">useCallback</span>(<span class="kw">async</span> (name, email, password, phone) =&gt; {
+    <span class="kw">const</span> res = <span class="kw">await</span> api.<span class="fn">register</span>({ name, email, password, phone });
+    <span class="kw">if</span> (res.success && res.data) {
+      <span class="fn">setUser</span>(res.data);
+      localStorage.<span class="fn">setItem</span>(<span class="str">'vastrika_token'</span>, res.data.token);
+      <span class="fn">setIsAuthModalOpen</span>(<span class="kw">false</span>);
+      <span class="kw">return</span> { success: <span class="kw">true</span>, user: res.data };
+    }
+  }, []);
+
+  <span class="kw">return</span> (
+    &lt;<span class="tag">AuthContext.Provider</span> <span class="attr">value</span>={{ user, isAuthenticated: !!user, register, login, logout }}&gt;
+      {children}
+    &lt;/<span class="tag">AuthContext.Provider</span>&gt;
+  );
+};</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 26: Orders, Checkout & Live API Client -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="26">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 26</span>
+          <h2 class="slide-heading">Orders, Live Checkout & Unified API Client</h2>
+        </div>
+        <div class="file-path-badge">📁 src/services/api.js & CheckoutModal.jsx</div>
+        <span class="slide-role-tag">End-to-End Integration</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Unified fetch service attaching Bearer tokens, placing orders, and syncing with MongoDB Atlas.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ ઓર્ડર પ્લેસમેન્ટ અને લાઈવ API કનેક્ટિવિટી દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Live Order Placement & Database Sync</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #1A1313; color: #FFE29F; padding: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; text-align: center;">
+                <div style="background: rgba(39,201,63,0.15); border: 1px solid #27C93F; padding: 14px; border-radius: 8px;">
+                  <div style="color: #27C93F; font-size: 1.3rem;">✓ Order ID Generated</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3; margin-top: 4px;">Stored in MongoDB 'orders' with unique ObjectId</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.15); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="color: #FFE29F; font-size: 1.3rem;">💳 Payment Method</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3; margin-top: 4px;">Supports Cash on Delivery (COD), UPI & Online</div>
+                </div>
+                <div style="background: rgba(86,212,200,0.15); border: 1px solid #56D4C8; padding: 14px; border-radius: 8px;">
+                  <div style="color: #56D4C8; font-size: 1.3rem;">🚚 Express Tracking</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3; margin-top: 4px;">Dispatches in 24-48 Hours with Order Tracking</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. API Service Code (લાઈવ API ક્લાયન્ટ)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">⚡ src/services/api.js</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Fetch API Service</span>
+            </div>
+            <pre class="code-block"><span class="kw">const</span> API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? <span class="str">'/api'</span> : <span class="str">'http://localhost:5000/api'</span>);
+
+<span class="kw">export const</span> api = {
+  <span class="cm">// Place new order in MongoDB Atlas</span>
+  <span class="kw">async</span> <span class="fn">createOrder</span>(orderData) {
+    <span class="kw">const</span> token = localStorage.<span class="fn">getItem</span>(<span class="str">'vastrika_token'</span>);
+    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">`</span>${API_BASE_URL}<span class="str">/orders`</span>, {
+      method: <span class="str">'POST'</span>,
+      headers: {
+        <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span>,
+        ...(token ? { Authorization: <span class="str">`Bearer </span>${token}<span class="str">`</span> } : {})
+      },
+      body: JSON.<span class="fn">stringify</span>(orderData)
+    });
+    <span class="kw">return</span> res.<span class="fn">json</span>();
+  }
+};</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- Bottom Floating Slide Navigator -->
   <nav class="bottom-nav-bar">
-    <button class="btn-ctrl" onclick="window.location.href='../PROJECT_PPT.html'">
-      Open Master PPT Presentation ➔
+    <button class="btn-ctrl" onclick="prevSlide()" title="Previous Slide (Left Arrow)">
+      ◀ Previous
+    </button>
+    <div class="slide-counter-badge" id="slideCounter">Slide 1 of 22</div>
+    <button class="btn-ctrl" onclick="nextSlide()" title="Next Slide (Right Arrow / Spacebar)">
+      Next ▶
     </button>
   </nav>
+
+  <!-- Overview Grid Modal -->
+  <div class="overview-modal" id="overviewModal" onclick="toggleOverview()">
+    <div class="overview-content" onclick="event.stopPropagation()">
+      <div class="overview-header">
+        <h2 class="overview-title">📋 All Project Slides Overview (બધી સ્લાઇડ્સ)</h2>
+        <button class="btn-ctrl" onclick="toggleOverview()">✕ Close (Esc)</button>
+      </div>
+      <div class="overview-grid" id="overviewGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide-deck-card');
+    const totalSlides = slides.length;
+    let currentSlideIndex = 1;
+    let isScrollMode = false;
+
+    // Populate Slide Dropdown & Overview Grid
+    const slideSelect = document.getElementById('slideSelect');
+    const overviewGrid = document.getElementById('overviewGrid');
+
+    slides.forEach((slide, idx) => {
+      const slideNum = idx + 1;
+      const heading = slide.querySelector('.slide-heading')?.innerText || `Slide ${slideNum}`;
+      const filePath = slide.querySelector('.file-path-badge')?.innerText || '';
+
+      // Option in dropdown
+      const opt = document.createElement('option');
+      opt.value = slideNum;
+      opt.innerText = `${slideNum.toString().padStart(2, '0')}. ${heading.substring(0, 30)}...`;
+      slideSelect.appendChild(opt);
+
+      // Card in overview grid
+      const card = document.createElement('div');
+      card.className = `overview-card ${slideNum === 1 ? 'active-card' : ''}`;
+      card.dataset.slideNum = slideNum;
+      card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 0.72rem; color: #FFE29F; font-weight: 800; font-family: 'Cinzel';">SLIDE ${slideNum.toString().padStart(2, '0')}</span>
+          <span style="font-size: 0.7rem; color: #56D4C8; font-family: 'Fira Code';">${filePath}</span>
+        </div>
+        <div style="font-weight: 700; font-size: 0.88rem; color: #FFFFFF; line-height: 1.3;">${heading}</div>
+      `;
+      card.onclick = () => {
+        jumpToSlide(slideNum);
+        toggleOverview();
+      };
+      overviewGrid.appendChild(card);
+    });
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlideIndex = index;
+
+      slides.forEach((s) => s.classList.remove('current-slide'));
+      const activeSlide = document.querySelector(`.slide-deck-card[data-slide="${currentSlideIndex}"]`);
+      if (activeSlide) {
+        activeSlide.classList.add('current-slide');
+      }
+
+      // Update counters & selects
+      document.getElementById('slideCounter').innerText = `Slide ${currentSlideIndex} of ${totalSlides}`;
+      slideSelect.value = currentSlideIndex;
+
+      // Update progress bar
+      const progressPercent = (currentSlideIndex / totalSlides) * 100;
+      document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+      // Update overview cards
+      document.querySelectorAll('.overview-card').forEach(c => {
+        c.classList.toggle('active-card', parseInt(c.dataset.slideNum) === currentSlideIndex);
+      });
+
+      if (!isScrollMode) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (activeSlide) {
+        activeSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlideIndex < totalSlides) {
+        showSlide(currentSlideIndex + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlideIndex > 1) {
+        showSlide(currentSlideIndex - 1);
+      }
+    }
+
+    function jumpToSlide(num) {
+      showSlide(num);
+    }
+
+    function togglePresentationMode() {
+      isScrollMode = !isScrollMode;
+      document.body.classList.toggle('scroll-mode', isScrollMode);
+      const btn = document.getElementById('modeBtn');
+      if (isScrollMode) {
+        btn.innerHTML = '<span>🖥️</span> Slide Mode';
+        btn.classList.add('active');
+      } else {
+        btn.innerHTML = '<span>📑</span> Scroll Mode';
+        btn.classList.remove('active');
+        showSlide(currentSlideIndex);
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function toggleOverview() {
+      const modal = document.getElementById('overviewModal');
+      modal.classList.toggle('open');
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        showSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        showSlide(totalSlides);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'o' || e.key === 'O') {
+        toggleOverview();
+      } else if (e.key === 'm' || e.key === 'M') {
+        togglePresentationMode();
+      } else if (e.key === 'Escape') {
+        document.getElementById('overviewModal').classList.remove('open');
+      }
+    });
+
+    // Copy Code Helper
+    function copyCode(btn) {
+      const codeBlock = btn.closest('.slide-code-section').querySelector('pre.code-block');
+      if (codeBlock) {
+        navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+          const originalText = btn.innerText;
+          btn.innerText = '✓ Copied!';
+          btn.style.background = '#27C93F';
+          btn.style.color = '#FFFFFF';
+          setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+          }, 2000);
+        });
+      }
+    }
+
+    // Initialize
+    showSlide(1);
+  </script>
 </body>
 </html>

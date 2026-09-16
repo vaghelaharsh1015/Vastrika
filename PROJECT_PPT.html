@@ -2757,6 +2757,335 @@ Double-click <span class="str">PROJECT_PPT.html</span> <span class="kw">or</span
       </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- SLIDE 23: Backend & Serverless Express API Architecture -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="23">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 23</span>
+          <h2 class="slide-heading">Full-Stack Backend Architecture (Node.js & Express)</h2>
+        </div>
+        <div class="file-path-badge">📁 backend/server.js & api/index.js</div>
+        <span class="slide-role-tag">REST API & Serverless Engine</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> High-performance Express.js REST API supporting local dev and seamless Vercel Serverless execution.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ સંપૂર્ણ Node.js + Express બેકએન્ડ આર્કિટેક્ચર અને API રાઉટીંગ દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Live API Endpoints & Health Check</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-window-header">
+              <div class="mockup-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="mockup-url-bar">https://vastrika-xi.vercel.app/api/health</div>
+              <div style="font-size: 0.75rem; color: #27C93F; font-weight: 700;">● Online (200 OK)</div>
+            </div>
+            <div class="mockup-content" style="background: #151110; color: #FFE29F; padding: 22px;">
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; text-align: center;">
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">🔐</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Auth Routes</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/auth (Login, Register, JWT, Profile)</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">🛍️</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Products Routes</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/products (Filter, Search, Categories)</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">📦</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Orders Routes</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/orders (Checkout, History, Tracking)</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="font-size: 1.3rem;">📊</div>
+                  <div style="font-weight: 700; font-size: 0.88rem; color: #FFE29F; margin: 4px 0;">Admin Analytics</div>
+                  <div style="font-size: 0.75rem; color: #C5BBAF;">/api/admin/dashboard (Revenue, Stats)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Server Code (એક્સપ્રેસ સર્વર કોડ)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">⚡ api/index.js (Vercel Serverless Entry)</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Express + Middleware</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> express <span class="kw">from</span> <span class="str">'express'</span>;
+<span class="kw">import</span> cors <span class="kw">from</span> <span class="str">'cors'</span>;
+<span class="kw">import</span> { connectDB } <span class="kw">from</span> <span class="str">'../backend/config/db.js'</span>;
+<span class="kw">import</span> authRoutes <span class="kw">from</span> <span class="str">'../backend/routes/authRoutes.js'</span>;
+<span class="kw">import</span> productRoutes <span class="kw">from</span> <span class="str">'../backend/routes/productRoutes.js'</span>;
+<span class="kw">import</span> orderRoutes <span class="kw">from</span> <span class="str">'../backend/routes/orderRoutes.js'</span>;
+
+<span class="kw">const</span> app = <span class="fn">express</span>();
+app.<span class="fn">use</span>(cors());
+app.<span class="fn">use</span>(express.<span class="fn">json</span>());
+
+<span class="cm">// Serverless DB Connection Middleware</span>
+app.<span class="fn">use</span>(<span class="kw">async</span> (req, res, next) =&gt; {
+  <span class="kw">await</span> <span class="fn">connectDB</span>();
+  <span class="fn">next</span>();
+});
+
+<span class="cm">// Mount API Endpoints</span>
+app.<span class="fn">use</span>(<span class="str">'/api/auth'</span>, authRoutes);
+app.<span class="fn">use</span>(<span class="str">'/api/products'</span>, productRoutes);
+app.<span class="fn">use</span>(<span class="str">'/api/orders'</span>, orderRoutes);
+
+<span class="kw">export default</span> app;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 24: Cloud MongoDB Atlas & Schemas -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="24">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 24</span>
+          <h2 class="slide-heading">Cloud MongoDB Atlas & Mongoose Schemas</h2>
+        </div>
+        <div class="file-path-badge">📁 backend/models/ (User, Product, Order, Contact)</div>
+        <span class="slide-role-tag">Cloud Database Layer</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Secure cloud data persistence on MongoDB Atlas Cluster with Mongoose ODM models.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ MongoDB Atlas કનેક્શન અને Mongoose Schemas દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">MongoDB Atlas Cloud Cluster (Cluster0)</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #111B15; color: #56D4C8; padding: 22px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; border-bottom: 1px solid rgba(86,212,200,0.3); padding-bottom: 8px;">
+                <div style="font-weight: 800; font-size: 1.1rem; color: #7EE787;">🍃 MongoDB Atlas • vastrika Database</div>
+                <div style="font-size: 0.78rem; background: rgba(39,201,63,0.2); border: 1px solid #27C93F; color: #7EE787; padding: 3px 10px; border-radius: 6px;">Connected: ReplicaSet Cluster</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">users</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">Name, Email, Bcrypt Password, Role (User/Admin), Addresses</div>
+                </div>
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">products</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">12+ Catalog Items, Images, Fabric, Price, Stock, Reviews</div>
+                </div>
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">orders</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">Order Items, Shipping Details, Payment Status, Delivery Tracking</div>
+                </div>
+                <div style="background: #18261F; padding: 12px; border-radius: 8px; border: 1px solid #234839;">
+                  <div style="color: #FFE29F; font-weight: 700; font-size: 0.9rem;">contacts</div>
+                  <div style="font-size: 0.74rem; color: #9FD9C0; margin-top: 4px;">Customer Inquiries, Bridal Consultation Requests & Status</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Schema Model Code (મોડલ સ્કીમા)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">🍃 backend/models/User.js (Bcrypt Security Model)</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Mongoose Schema</span>
+            </div>
+            <pre class="code-block"><span class="kw">import</span> mongoose <span class="kw">from</span> <span class="str">'mongoose'</span>;
+<span class="kw">import</span> bcrypt <span class="kw">from</span> <span class="str">'bcryptjs'</span>;
+
+<span class="kw">const</span> userSchema = <span class="kw">new</span> mongoose.<span class="fn">Schema</span>({
+  name: { type: String, required: <span class="kw">true</span> },
+  email: { type: String, required: <span class="kw">true</span>, unique: <span class="kw">true</span>, lowercase: <span class="kw">true</span> },
+  password: { type: String, required: <span class="kw">true</span>, select: <span class="kw">false</span> },
+  role: { type: String, enum: [<span class="str">'user'</span>, <span class="str">'admin'</span>], default: <span class="str">'user'</span> },
+  phone: { type: String, default: <span class="str">''</span> },
+  addresses: [{ street: String, city: String, state: String, pincode: String }]
+}, { timestamps: <span class="kw">true</span> });
+
+<span class="cm">// Pre-save Hook: Bcrypt Password Hashing</span>
+userSchema.<span class="fn">pre</span>(<span class="str">'save'</span>, <span class="kw">async function</span> (next) {
+  <span class="kw">if</span> (!<span class="kw">this</span>.<span class="fn">isModified</span>(<span class="str">'password'</span>)) <span class="kw">return</span> <span class="fn">next</span>();
+  <span class="kw">const</span> salt = <span class="kw">await</span> bcrypt.<span class="fn">genSalt</span>(<span class="num">10</span>);
+  <span class="kw">this</span>.password = <span class="kw">await</span> bcrypt.<span class="fn">hash</span>(<span class="kw">this</span>.password, salt);
+});</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 25: JWT Authentication & Patron Modal -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="25">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 25</span>
+          <h2 class="slide-heading">JWT Authentication & Patron Login/Register UI</h2>
+        </div>
+        <div class="file-path-badge">📁 src/context/AuthContext.jsx & src/components/AuthModal.jsx</div>
+        <span class="slide-role-tag">Security & User Session</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Auto-opening popup, standalone Register tab, Cart Guards & JWT Bearer token state management.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ યુઝર રજીસ્ટ્રેશન, લૉગિન અને કાર્ટ પ્રોટેક્શનનું ફંક્શન દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Royal Patron Auth Modal & Navbar Badge</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #17110F; color: #F9F6F0; padding: 20px;">
+              <div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
+                <div style="background: #221814; border: 1.5px solid #C5A059; border-radius: 12px; padding: 18px; max-width: 320px; text-align: center;">
+                  <div style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: #FFE29F; margin-bottom: 6px;">👑 JOIN VASTRIKA CLUB</div>
+                  <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                    <span style="flex: 1; background: transparent; border: 1px solid #5A4739; padding: 4px; border-radius: 6px; font-size: 0.75rem; color: #B3A898;">Sign In</span>
+                    <span style="flex: 1; background: linear-gradient(135deg, #C5A059, #9B783E); color: #1A1412; font-weight: 700; padding: 4px; border-radius: 6px; font-size: 0.75rem;">Register (New User)</span>
+                  </div>
+                  <div style="font-size: 0.75rem; color: #9FD9C0;">✓ Direct MongoDB Cloud Registration</div>
+                </div>
+                <div style="background: #241A16; border: 1px solid rgba(212,175,55,0.4); border-radius: 12px; padding: 16px; text-align: center;">
+                  <div style="font-size: 0.8rem; color: #FFE29F; font-weight: 700; margin-bottom: 6px;">Navbar Status Once Logged In</div>
+                  <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(197,160,89,0.2); border: 1px solid #C5A059; padding: 6px 14px; border-radius: 20px; color: #FFE29F; font-weight: 700; font-size: 0.82rem;">
+                    👤 Rani (Patron)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. Auth Context Code (ઓથેન્ટિકેશન લોજિક)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">🔐 src/context/AuthContext.jsx</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">React Context API</span>
+            </div>
+            <pre class="code-block"><span class="kw">export const</span> <span class="fn">AuthProvider</span> = ({ children }) =&gt; {
+  <span class="kw">const</span> [user, setUser] = <span class="hook">useState</span>(() =&gt; JSON.<span class="fn">parse</span>(localStorage.<span class="fn">getItem</span>(<span class="str">'vastrika_user'</span>)) || <span class="kw">null</span>);
+  <span class="kw">const</span> [isAuthModalOpen, setIsAuthModalOpen] = <span class="hook">useState</span>(<span class="kw">false</span>);
+
+  <span class="kw">const</span> register = <span class="hook">useCallback</span>(<span class="kw">async</span> (name, email, password, phone) =&gt; {
+    <span class="kw">const</span> res = <span class="kw">await</span> api.<span class="fn">register</span>({ name, email, password, phone });
+    <span class="kw">if</span> (res.success && res.data) {
+      <span class="fn">setUser</span>(res.data);
+      localStorage.<span class="fn">setItem</span>(<span class="str">'vastrika_token'</span>, res.data.token);
+      <span class="fn">setIsAuthModalOpen</span>(<span class="kw">false</span>);
+      <span class="kw">return</span> { success: <span class="kw">true</span>, user: res.data };
+    }
+  }, []);
+
+  <span class="kw">return</span> (
+    &lt;<span class="tag">AuthContext.Provider</span> <span class="attr">value</span>={{ user, isAuthenticated: !!user, register, login, logout }}&gt;
+      {children}
+    &lt;/<span class="tag">AuthContext.Provider</span>&gt;
+  );
+};</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 26: Orders, Checkout & Live API Client -->
+    <!-- ========================================== -->
+    <div class="slide-deck-card" data-slide="26">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-pill">SLIDE 26</span>
+          <h2 class="slide-heading">Orders, Live Checkout & Unified API Client</h2>
+        </div>
+        <div class="file-path-badge">📁 src/services/api.js & CheckoutModal.jsx</div>
+        <span class="slide-role-tag">End-to-End Integration</span>
+      </div>
+      <div class="slide-meta-bar">
+        <span><strong>Role:</strong> Unified fetch service attaching Bearer tokens, placing orders, and syncing with MongoDB Atlas.</span>
+        <span class="gujarati-expl">આ સ્લાઇડ ઓર્ડર પ્લેસમેન્ટ અને લાઈવ API કનેક્ટિવિટી દર્શાવે છે.</span>
+      </div>
+      <div class="slide-body">
+        <div class="slide-ui-section">
+          <div class="section-label">
+            <span class="section-title">🖥️ 1. Output UI Preview (ટોપ આઉટપુટ ડિઝાઇન)</span>
+            <span style="font-size: 0.75rem; color: #8C827A;">Live Order Placement & Database Sync</span>
+          </div>
+          <div class="ui-mockup-frame">
+            <div class="mockup-content" style="background: #1A1313; color: #FFE29F; padding: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; text-align: center;">
+                <div style="background: rgba(39,201,63,0.15); border: 1px solid #27C93F; padding: 14px; border-radius: 8px;">
+                  <div style="color: #27C93F; font-size: 1.3rem;">✓ Order ID Generated</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3; margin-top: 4px;">Stored in MongoDB 'orders' with unique ObjectId</div>
+                </div>
+                <div style="background: rgba(212,175,55,0.15); border: 1px solid #D4AF37; padding: 14px; border-radius: 8px;">
+                  <div style="color: #FFE29F; font-size: 1.3rem;">💳 Payment Method</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3; margin-top: 4px;">Supports Cash on Delivery (COD), UPI & Online</div>
+                </div>
+                <div style="background: rgba(86,212,200,0.15); border: 1px solid #56D4C8; padding: 14px; border-radius: 8px;">
+                  <div style="color: #56D4C8; font-size: 1.3rem;">🚚 Express Tracking</div>
+                  <div style="font-size: 0.8rem; color: #E8DFD3; margin-top: 4px;">Dispatches in 24-48 Hours with Order Tracking</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-code-section">
+          <div class="section-label">
+            <span class="section-title">💻 2. API Service Code (લાઈવ API ક્લાયન્ટ)</span>
+            <button class="btn-copy" onclick="copyCode(this)">📋 Copy Code</button>
+          </div>
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-tab-title">⚡ src/services/api.js</span>
+              <span style="font-size: 0.72rem; color: #79C0FF;">Fetch API Service</span>
+            </div>
+            <pre class="code-block"><span class="kw">const</span> API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? <span class="str">'/api'</span> : <span class="str">'http://localhost:5000/api'</span>);
+
+<span class="kw">export const</span> api = {
+  <span class="cm">// Place new order in MongoDB Atlas</span>
+  <span class="kw">async</span> <span class="fn">createOrder</span>(orderData) {
+    <span class="kw">const</span> token = localStorage.<span class="fn">getItem</span>(<span class="str">'vastrika_token'</span>);
+    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">`</span>${API_BASE_URL}<span class="str">/orders`</span>, {
+      method: <span class="str">'POST'</span>,
+      headers: {
+        <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span>,
+        ...(token ? { Authorization: <span class="str">`Bearer </span>${token}<span class="str">`</span> } : {})
+      },
+      body: JSON.<span class="fn">stringify</span>(orderData)
+    });
+    <span class="kw">return</span> res.<span class="fn">json</span>();
+  }
+};</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- Bottom Floating Slide Navigator -->
