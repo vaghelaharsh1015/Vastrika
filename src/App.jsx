@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -30,7 +30,7 @@ const ScrollToTop = () => {
 
 function App() {
   const { isAuthenticated, openLogin } = useAuth();
-  const hasPromptedRef = React.useRef(false);
+  const hasPromptedRef = useRef(false);
 
   // Prompt Login/Register strictly ONCE on initial website load
   useEffect(() => {

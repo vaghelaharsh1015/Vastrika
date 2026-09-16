@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { X, Lock, Mail, User as UserIcon, Phone, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { X, Lock, Mail, User as UserIcon, Phone, Sparkles, ArrowRight } from 'lucide-react';
 
 const AuthModal = () => {
   const {
     isAuthModalOpen,
-    authMode,
-    setAuthMode,
+    authMode: initialAuthMode,
     closeAuthModal,
     login,
     register,
@@ -15,6 +14,9 @@ const AuthModal = () => {
   } = useAuth();
 
   const { addToast } = useCart();
+
+  // Local independent mode state to prevent any external re-render resets
+  const [currentMode, setCurrentMode] = useState('login');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -25,6 +27,14 @@ const AuthModal = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Sync mode whenever modal is explicitly opened
+  useEffect(() => {
+    if (isAuthModalOpen) {
+      setCurrentMode(initialAuthMode || 'login');
+      setErrorMessage('');
+    }
+  }, [isAuthModalOpen, initialAuthMode]);
+
   if (!isAuthModalOpen) return null;
 
   const handleChange = (e) => {
@@ -32,21 +42,29 @@ const AuthModal = () => {
     if (errorMessage) setErrorMessage('');
   };
 
+  const handleClose = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    closeAuthModal();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
 
-    if (authMode === 'login') {
+    if (currentMode === 'login') {
       const res = await login(formData.email, formData.password);
-      if (res.success) {
+      if (res && res.success) {
         addToast(`Welcome back, ${res.user.name || 'Patron'}! ✨`, 'success');
         setFormData({ name: '', email: '', password: '', phone: '' });
       } else {
-        setErrorMessage(res.message || 'Invalid email or password. If you are a new patron, please click "Register (New User)" below.');
+        setErrorMessage(res?.message || 'Invalid email or password. If you are a new user, please click Register below.');
       }
     } else {
       if (!formData.name || !formData.email || !formData.password) {
-        setErrorMessage('Please fill in all mandatory fields');
+        setErrorMessage('Please fill in all mandatory fields (Name, Email, Password)');
         return;
       }
       const res = await register(
@@ -55,11 +73,11 @@ const AuthModal = () => {
         formData.password,
         formData.phone
       );
-      if (res.success) {
+      if (res && res.success) {
         addToast(`Welcome to Vastrika Haute Couture, ${res.user.name}! 👑`, 'success');
         setFormData({ name: '', email: '', password: '', phone: '' });
       } else {
-        setErrorMessage(res.message || 'Registration failed');
+        setErrorMessage(res?.message || 'Registration failed. Email may already be registered.');
       }
     }
   };
@@ -72,62 +90,64 @@ const AuthModal = () => {
         left: 0,
         width: '100vw',
         height: '100vh',
-        backgroundColor: 'rgba(0, 0, 0, 0.82)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 999999,
-        padding: '16px',
+        zIndex: 9999999,
+        padding: '20px',
         boxSizing: 'border-box',
       }}
-      onClick={closeAuthModal}
+      onClick={handleClose}
     >
       <div
         style={{
           maxWidth: '460px',
           width: '100%',
           backgroundColor: '#16110F',
-          border: '1px solid #C5A059',
+          border: '1.5px solid #C5A059',
           borderRadius: '16px',
-          padding: '28px 30px',
+          padding: '30px 32px',
           color: '#F9F6F0',
           position: 'relative',
-          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(197, 160, 89, 0.15)',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(197, 160, 89, 0.25)',
           maxHeight: '92vh',
           overflowY: 'auto',
           boxSizing: 'border-box',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Prominent Close Button */}
+        {/* Guaranteed Close Button (X) */}
         <button
-          onClick={closeAuthModal}
+          type="button"
+          onClick={handleClose}
           style={{
             position: 'absolute',
             top: '16px',
             right: '16px',
-            width: '38px',
-            height: '38px',
+            width: '40px',
+            height: '40px',
             borderRadius: '50%',
-            backgroundColor: '#2A201C',
-            border: '1px solid #C5A059',
+            backgroundColor: '#2A1F1A',
+            border: '1.5px solid #C5A059',
             color: '#F9F6F0',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            zIndex: 10,
+            zIndex: 100,
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
           }}
           aria-label="Close"
-          title="Close and continue browsing"
+          title="Close window"
         >
           <X size={20} color="#C5A059" />
         </button>
 
         {/* Header Emblem */}
-        <div style={{ textAlign: 'center', marginBottom: '18px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
           <div
             style={{
               display: 'inline-flex',
@@ -145,10 +165,10 @@ const AuthModal = () => {
             <Sparkles size={24} />
           </div>
           <h2 style={{ fontFamily: 'Cinzel, Georgia, serif', fontSize: '1.55rem', color: '#F9F6F0', margin: '0 0 6px' }}>
-            {authMode === 'login' ? 'Patron Sign In' : 'Join Vastrika Club'}
+            {currentMode === 'login' ? 'Patron Sign In' : 'Join Vastrika Club'}
           </h2>
           <p style={{ fontSize: '0.84rem', color: '#C8BFB0', margin: 0, lineHeight: 1.4 }}>
-            {authMode === 'login'
+            {currentMode === 'login'
               ? 'Sign in to access your luxury bag, wishlist & track orders.'
               : 'Create your royal patron profile for personalized couture & benefits.'}
           </p>
@@ -162,23 +182,23 @@ const AuthModal = () => {
             borderRadius: '10px',
             padding: '4px',
             marginBottom: '18px',
-            border: '1px solid rgba(197, 160, 89, 0.3)',
+            border: '1px solid rgba(197, 160, 89, 0.35)',
           }}
         >
           <button
             type="button"
             onClick={() => {
-              setAuthMode('login');
+              setCurrentMode('login');
               setErrorMessage('');
             }}
             style={{
               flex: 1,
-              padding: '10px 0',
+              padding: '11px 0',
               borderRadius: '8px',
               border: 'none',
-              background: authMode === 'login' ? 'linear-gradient(135deg, #C5A059, #9B783E)' : 'transparent',
-              color: authMode === 'login' ? '#140E0C' : '#B8AD9E',
-              fontWeight: 700,
+              background: currentMode === 'login' ? 'linear-gradient(135deg, #C5A059, #9B783E)' : 'transparent',
+              color: currentMode === 'login' ? '#140E0C' : '#B8AD9E',
+              fontWeight: 800,
               fontSize: '0.88rem',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
@@ -189,17 +209,17 @@ const AuthModal = () => {
           <button
             type="button"
             onClick={() => {
-              setAuthMode('register');
+              setCurrentMode('register');
               setErrorMessage('');
             }}
             style={{
               flex: 1,
-              padding: '10px 0',
+              padding: '11px 0',
               borderRadius: '8px',
               border: 'none',
-              background: authMode === 'register' ? 'linear-gradient(135deg, #C5A059, #9B783E)' : 'transparent',
-              color: authMode === 'register' ? '#140E0C' : '#B8AD9E',
-              fontWeight: 700,
+              background: currentMode === 'register' ? 'linear-gradient(135deg, #C5A059, #9B783E)' : 'transparent',
+              color: currentMode === 'register' ? '#140E0C' : '#B8AD9E',
+              fontWeight: 800,
               fontSize: '0.88rem',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
@@ -229,7 +249,7 @@ const AuthModal = () => {
 
         {/* Auth Form */}
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          {authMode === 'register' && (
+          {currentMode === 'register' && (
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', color: '#D4AF37', marginBottom: '5px', fontWeight: 600 }}>
                 FULL NAME *
@@ -287,7 +307,7 @@ const AuthModal = () => {
             </div>
           </div>
 
-          {authMode === 'register' && (
+          {currentMode === 'register' && (
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', color: '#D4AF37', marginBottom: '5px', fontWeight: 600 }}>
                 PHONE NUMBER
@@ -369,7 +389,7 @@ const AuthModal = () => {
             <span>
               {isLoading
                 ? 'AUTHENTICATING...'
-                : authMode === 'login'
+                : currentMode === 'login'
                 ? 'SIGN IN TO ACCOUNT'
                 : 'REGISTER PATRON ACCOUNT'}
             </span>
@@ -393,7 +413,7 @@ const AuthModal = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
             <span
               onClick={() => {
-                setAuthMode('login');
+                setCurrentMode('login');
                 setFormData({ name: '', email: 'user@vastrika.com', password: 'User@123', phone: '' });
                 setErrorMessage('');
               }}
@@ -403,7 +423,7 @@ const AuthModal = () => {
             </span>
             <span
               onClick={() => {
-                setAuthMode('login');
+                setCurrentMode('login');
                 setFormData({ name: '', email: 'admin@vastrika.com', password: 'Admin@123', phone: '' });
                 setErrorMessage('');
               }}
@@ -416,13 +436,13 @@ const AuthModal = () => {
 
         {/* Switch Link */}
         <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '0.84rem', color: '#B0A596' }}>
-          {authMode === 'login' ? (
+          {currentMode === 'login' ? (
             <>
               Don't have an account yet?{' '}
               <button
                 type="button"
                 onClick={() => {
-                  setAuthMode('register');
+                  setCurrentMode('register');
                   setErrorMessage('');
                 }}
                 style={{
@@ -444,7 +464,7 @@ const AuthModal = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setAuthMode('login');
+                  setCurrentMode('login');
                   setErrorMessage('');
                 }}
                 style={{
